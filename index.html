@@ -5,30 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo 02: Complete Experience - Artificial CU</title>
 
-    <!-- Google Fonts - Roboto for Material Design -->
+    <!-- Google Fonts - Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Material Web Components via CDN -->
-    <script type="importmap">
-    {
-        "imports": {
-            "@material/web/": "https://esm.run/@material/web/"
-        }
-    }
-    </script>
-    <script type="module">
-        import '@material/web/button/filled-button.js';
-        import '@material/web/button/outlined-button.js';
-        import '@material/web/button/text-button.js';
-        import '@material/web/progress/circular-progress.js';
-        import '@material/web/elevation/elevation.js';
-        import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
-        // Apply Material typography styles globally
-        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-    </script>
 
     <style>
         /* ============================================
@@ -44,142 +24,231 @@
             width: 100%;
             height: 100%;
             font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--md-sys-color-background);
-            color: var(--md-sys-color-on-background);
+            background: var(--bg-deepspace);
+            color: var(--text-primary);
             overflow: hidden;
         }
 
         :root {
             /* ============================================
-               MATERIAL DESIGN 3 - DARK THEME
-               High Contrast for Projection Viewing
+               WEB3 / CRYPTO COLOR PALETTE
+               Modern, Sleek, High-Tech Aesthetic
                ============================================ */
 
-            /* Material Color System - Custom Dark Theme */
-            --md-sys-color-primary: #4DB6AC;              /* Teal - Credit Union Trust */
-            --md-sys-color-on-primary: #003735;
-            --md-sys-color-primary-container: #00504C;
-            --md-sys-color-on-primary-container: #70F5E8;
+            /* Primary - Neon Cyan/Teal */
+            --primary-start: #06B6D4;
+            --primary-end: #14B8A6;
+            --primary-glow: rgba(6, 182, 212, 0.5);
 
-            --md-sys-color-secondary: #90CAF9;            /* Light Blue - Data/Tech */
-            --md-sys-color-on-secondary: #003258;
-            --md-sys-color-secondary-container: #004A77;
-            --md-sys-color-on-secondary-container: #C9E6FF;
+            /* Secondary - Electric Blue */
+            --secondary-start: #3B82F6;
+            --secondary-end: #2563EB;
+            --secondary-glow: rgba(59, 130, 246, 0.5);
 
-            --md-sys-color-tertiary: #FFD54F;             /* Amber Gold - Stablecoins */
-            --md-sys-color-on-tertiary: #3E2E00;
-            --md-sys-color-tertiary-container: #5A4300;
-            --md-sys-color-on-tertiary-container: #FFECB8;
+            /* Tertiary - Bright Cyan */
+            --tertiary-start: #22D3EE;
+            --tertiary-end: #67E8F9;
+            --tertiary-glow: rgba(34, 211, 238, 0.5);
 
-            --md-sys-color-error: #FFB4AB;                /* Soft Red for Errors */
-            --md-sys-color-on-error: #690005;
-            --md-sys-color-error-container: #93000A;
-            --md-sys-color-on-error-container: #FFDAD6;
+            /* Accent - Emerald Green */
+            --accent-start: #10B981;
+            --accent-end: #34D399;
+            --accent-glow: rgba(16, 185, 129, 0.5);
 
-            --md-sys-color-background: #0A0E0D;           /* Very Dark Background */
-            --md-sys-color-on-background: #E0E3E1;        /* High Contrast Text */
+            /* Backgrounds - Deep Space Theme */
+            --bg-deepspace: #020617;
+            --bg-surface-dark: #0F172A;
+            --bg-surface-mid: #1E293B;
+            --bg-surface-light: #334155;
 
-            --md-sys-color-surface: #0A0E0D;
-            --md-sys-color-on-surface: #E0E3E1;
-            --md-sys-color-surface-variant: #3F4946;
-            --md-sys-color-on-surface-variant: #BEC9C5;
+            /* Text Colors */
+            --text-primary: #FFFFFF;
+            --text-secondary: #E0D4FF;
+            --text-muted: #A78BFA;
 
-            --md-sys-color-surface-container-lowest: #050807;
-            --md-sys-color-surface-container-low: #191C1B;
-            --md-sys-color-surface-container: #1D2120;
-            --md-sys-color-surface-container-high: #272B29;
-            --md-sys-color-surface-container-highest: #323634;
+            /* Semantic Colors */
+            --success-start: #10B981;
+            --success-end: #34D399;
+            --success-glow: rgba(16, 185, 129, 0.5);
 
-            --md-sys-color-outline: #889390;
-            --md-sys-color-outline-variant: #3F4946;
+            --warning-start: #F59E0B;
+            --warning-end: #FBBF24;
+            --warning-glow: rgba(245, 158, 11, 0.5);
 
-            /* Custom Semantic Colors for Demo */
-            --cu-blue: var(--md-sys-color-primary);
-            --ai-purple: #CE93D8;                         /* Material Purple 200 */
-            --data-blue: var(--md-sys-color-secondary);
-            --stablecoin-gold: var(--md-sys-color-tertiary);
-            --trust-green: #81C784;                       /* Material Green 300 */
-            --alert-amber: #FFB74D;                       /* Material Orange 300 */
-            --urgent-red: var(--md-sys-color-error);
+            --error-start: #EF4444;
+            --error-end: #F87171;
+            --error-glow: rgba(239, 68, 68, 0.5);
+
+            /* Technology Colors */
+            --ai-purple-start: #A855F7;
+            --ai-purple-end: #C084FC;
+
+            --data-blue-start: #3B82F6;
+            --data-blue-end: #60A5FA;
+
+            --stablecoin-gold-start: #FBBF24;
+            --stablecoin-gold-end: #FCD34D;
+
+            /* Legacy compatibility */
+            --cu-blue: #60A5FA;
+            --ai-purple: #C084FC;
+            --data-blue: #60A5FA;
+            --stablecoin-gold: #FCD34D;
+            --trust-green: #34D399;
+            --alert-amber: #FBBF24;
+            --urgent-red: #F87171;
 
             /* Animation Speed */
             --anim-speed: 1;
 
-            /* Material Shape */
-            --md-sys-shape-corner-small: 8px;
-            --md-sys-shape-corner-medium: 12px;
-            --md-sys-shape-corner-large: 16px;
-            --md-sys-shape-corner-extra-large: 28px;
+            /* Modern Shape System - Sharp & Sleek */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 10px;
+            --radius-xl: 12px;
         }
 
         /* ============================================
-           TYPOGRAPHY - PROJECTION OPTIMIZED
-           Scaled ~1.2-1.5x for viewing from distance
-           Balanced for readability without overflow
+           TYPOGRAPHY - WEB3 OPTIMIZED
+           Scaled for projection while fitting all content
+           Modern, tight spacing for sleek appearance
            ============================================ */
 
         body {
-            font-size: 32px;
+            font-size: 22px;
             line-height: 1.5;
             font-weight: 400;
-            letter-spacing: 0.01em;
+            letter-spacing: -0.01em;
         }
 
         /* Display Scale - For Major Titles */
         h1 {
-            font-size: 84px;
-            font-weight: 700;
+            font-size: 56px;
+            font-weight: 900;
             line-height: 1.1;
             margin-bottom: 0.3em;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Headline Scale - For Section Headings */
         h2 {
-            font-size: 64px;
+            font-size: 44px;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.4em;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
         h3 {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: 600;
             line-height: 1.3;
             margin-bottom: 0.5em;
-            letter-spacing: 0;
+            letter-spacing: -0.01em;
         }
 
         /* Body Scale - For Content */
         .text-large {
-            font-size: 52px;
+            font-size: 36px;
             font-weight: 500;
             line-height: 1.4;
-            letter-spacing: 0;
+            letter-spacing: -0.01em;
         }
 
         .text-normal {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 400;
             line-height: 1.6;
-            letter-spacing: 0.01em;
+            letter-spacing: 0;
         }
 
         .text-small {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 400;
             line-height: 1.5;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
         }
 
         /* Data/Numeric Display */
         .text-data {
-            font-size: 42px;
+            font-size: 32px;
             font-weight: 700;
             font-family: 'Roboto Mono', 'Courier New', monospace;
             letter-spacing: 0.02em;
             font-feature-settings: 'tnum' 1;  /* Tabular numbers */
+        }
+
+        /* ============================================
+           WEB3 BUTTONS
+           ============================================ */
+
+        .web3-btn {
+            position: relative;
+            padding: 12px 32px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+        .web3-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: var(--radius-md);
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .web3-btn-primary {
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            color: white;
+            box-shadow: 0 4px 16px var(--primary-glow);
+        }
+
+        .web3-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--primary-glow);
+        }
+
+        .web3-btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px var(--primary-glow);
+        }
+
+        .web3-btn-secondary {
+            background: var(--bg-surface-mid);
+            color: var(--text-primary);
+            border: 2px solid var(--text-tertiary);
+        }
+
+        .web3-btn-secondary:hover {
+            background: var(--bg-surface-light);
+            border-color: var(--primary-start);
+            color: var(--primary-start);
+            box-shadow: 0 4px 16px rgba(6, 182, 212, 0.2);
+        }
+
+        .web3-btn-secondary:active {
+            background: var(--bg-surface-dark);
         }
 
         #demo-container { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
@@ -193,24 +262,24 @@
             display: flex;
             overflow: hidden;
             background: linear-gradient(135deg,
-                var(--md-sys-color-surface) 0%,
-                var(--md-sys-color-surface-container-low) 50%,
-                var(--md-sys-color-surface) 100%);
+                var(--bg-deepspace) 0%,
+                var(--bg-surface-dark) 50%,
+                var(--bg-deepspace) 100%);
             animation: backgroundFlow 20s ease-in-out infinite;
         }
 
         @keyframes backgroundFlow {
             0%, 100% {
                 background: linear-gradient(135deg,
-                    var(--md-sys-color-surface) 0%,
-                    var(--md-sys-color-surface-container-low) 50%,
-                    var(--md-sys-color-surface) 100%);
+                    var(--bg-deepspace) 0%,
+                    var(--bg-surface-dark) 50%,
+                    var(--bg-deepspace) 100%);
             }
             50% {
                 background: linear-gradient(135deg,
-                    var(--md-sys-color-surface-container-low) 0%,
-                    var(--md-sys-color-surface-container) 50%,
-                    var(--md-sys-color-surface) 100%);
+                    var(--bg-surface-dark) 0%,
+                    var(--bg-surface-mid) 50%,
+                    var(--bg-deepspace) 100%);
             }
         }
 
@@ -253,31 +322,36 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            /* Material Surface with Elevation */
-            background: var(--md-sys-color-surface-container-high);
-            border-radius: var(--md-sys-shape-corner-extra-large);
-            border: 1px solid var(--md-sys-color-outline-variant);
+            /* Glassmorphism */
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(6, 182, 212, 0.2);
             padding: 2vw;
             padding-top: 3vw;
             overflow-y: auto;
-            /* Material Elevation Level 2 */
+            /* Neon glow */
             box-shadow:
-                0 2px 4px -1px rgba(0, 0, 0, 0.2),
-                0 4px 8px 0 rgba(0, 0, 0, 0.14),
-                0 1px 16px 0 rgba(0, 0, 0, 0.12);
+                0 0 40px rgba(6, 182, 212, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .phone-frame {
-            background: #000;
-            border: 12px solid #222;
-            border-radius: 50px;
+            background: linear-gradient(135deg, #020617, #0F172A);
+            border: 3px solid rgba(6, 182, 212, 0.4);
+            border-radius: 24px;
             width: 100%;
             max-width: 360px;
             height: 720px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 0 60px rgba(6, 182, 212, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(6, 182, 212, 0.2);
             position: relative;
         }
 
@@ -298,36 +372,76 @@
         .phone-status-bar { background: #000; color: #fff; padding: 8px 16px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; padding-top: 30px; border-bottom: 1px solid #333; }
         .phone-app-header { background: var(--cu-blue); color: white; padding: 16px; display: flex; align-items: center; gap: 12px; font-size: 18px; font-weight: 600; }
         .phone-app-header::before { content: '←'; font-size: 24px; opacity: 0.7; }
-        .phone-content { flex: 1; overflow-y: auto; background: #f5f5f5; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .phone-content {
+            flex: 1;
+            overflow-y: auto;
+            background: #f5f5f5;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-        .message-bubble {
-            padding: 14px 18px;
-            border-radius: 20px;
-            font-size: 16px;
-            line-height: 1.5;
-            max-width: 85%;
-            word-wrap: break-word;
+        /* Message Container with Avatar */
+        .message-row {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
             animation: messageFadeIn 0.4s ease-out forwards;
             opacity: 0;
+        }
+
+        .message-row.user-message {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .message-avatar.ai-avatar {
+            background: linear-gradient(135deg, #06B6D4, #14B8A6);
+            color: white;
+        }
+
+        .message-avatar.user-avatar {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+        }
+
+        .message-bubble {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            line-height: 1.4;
+            max-width: 75%;
+            word-wrap: break-word;
         }
 
         @keyframes messageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .message-user {
-            align-self: flex-end;
-            background: linear-gradient(135deg, var(--data-blue), #2980b9);
+            background: #3B82F6;
             color: white;
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+            border-bottom-right-radius: 4px;
         }
 
         .message-ai {
-            align-self: flex-start;
-            background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
-            color: #222;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            color: #1a1a1a;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        .typing-indicator { align-self: flex-start; background: #e0e0e0; color: #999; padding: 12px 16px; border-radius: 18px; display: flex; gap: 4px; align-items: center; font-size: 14px; }
+        .typing-indicator { align-self: flex-start; background: #e0e0e0; color: #999; padding: 12px 16px; border-radius: 10px; display: flex; gap: 4px; align-items: center; font-size: 14px; }
 
         .typing-dot {
             width: 8px;
@@ -355,7 +469,7 @@
             align-items: center;
             gap: 10px;
             padding: 10px 16px;
-            border-radius: var(--md-sys-shape-corner-medium);
+            border-radius: var(--radius-md);
             font-size: 18px;
             font-weight: 600;
             margin-right: 10px;
@@ -384,12 +498,15 @@
         /* Data Points for Information Display */
         .data-point {
             padding: 24px;
-            border-left: 6px solid var(--md-sys-color-secondary);
-            background: var(--md-sys-color-surface-container);
-            border-radius: var(--md-sys-shape-corner-small);
+            border-left: 4px solid var(--secondary-start);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
             margin-bottom: 20px;
             animation: slideInLeft 0.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
             opacity: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes slideInLeft {
@@ -412,7 +529,7 @@
         .data-label {
             font-size: 20px;
             font-weight: 600;
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
@@ -428,19 +545,21 @@
         .timer-display {
             font-size: 56px;
             font-weight: 900;
-            color: var(--md-sys-color-tertiary);
+            background: linear-gradient(135deg, var(--tertiary-start), var(--tertiary-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             padding: 24px 32px;
             text-align: center;
-            border: 3px solid var(--md-sys-color-tertiary);
-            border-radius: var(--md-sys-shape-corner-large);
+            border: 2px solid var(--tertiary-start);
+            border-radius: var(--radius-lg);
             margin: 24px 0;
-            background: var(--md-sys-color-tertiary-container);
-            /* Material Elevation for emphasis */
+            background-color: rgba(6, 182, 212, 0.1);
+            /* Neon glow */
             box-shadow:
-                0 4px 8px -2px rgba(0, 0, 0, 0.2),
-                0 8px 16px 2px rgba(0, 0, 0, 0.14),
-                0 2px 24px 4px rgba(0, 0, 0, 0.12),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+                0 0 30px var(--tertiary-glow),
+                0 4px 16px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             letter-spacing: 0.05em;
         }
 
@@ -448,34 +567,36 @@
         .full-screen.left-aligned { align-items: flex-start; text-align: left; }
 
         /* ============================================
-           CONTROL PANEL - Material Design
+           CONTROL PANEL - Web3 Glassmorphism
            ============================================ */
 
         #controls {
             position: fixed;
             bottom: 24px;
             left: 24px;
-            /* Material Surface with Elevation */
-            background: var(--md-sys-color-surface-container-highest);
-            border: 1px solid var(--md-sys-color-outline);
-            border-radius: var(--md-sys-shape-corner-large);
+            /* Glassmorphism */
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: var(--radius-xl);
             padding: 24px;
             z-index: 1000;
             font-size: 16px;
             max-width: 320px;
-            /* Material Elevation Level 3 */
+            /* Neon glow */
             box-shadow:
-                0 4px 8px -2px rgba(0, 0, 0, 0.2),
-                0 8px 16px 2px rgba(0, 0, 0, 0.14),
-                0 2px 24px 4px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);  /* Material easing */
+                0 0 40px rgba(6, 182, 212, 0.2),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
         #controls:hover {
             box-shadow:
-                0 6px 12px -4px rgba(0, 0, 0, 0.2),
-                0 12px 24px 4px rgba(0, 0, 0, 0.14),
-                0 4px 32px 6px rgba(0, 0, 0, 0.12);
+                0 0 50px rgba(6, 182, 212, 0.3),
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         #controls.hidden {
@@ -490,7 +611,7 @@
         .control-label {
             font-size: 14px;
             font-weight: 500;
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -510,7 +631,7 @@
 
         #speedDisplay {
             font-weight: 700;
-            color: var(--md-sys-color-tertiary);
+            color: var(--tertiary-start);
             min-width: 48px;
             font-size: 16px;
         }
@@ -520,35 +641,6 @@
             gap: 12px;
             flex-wrap: wrap;
             align-items: center;
-        }
-
-        /* Material Button Customization */
-        #controls md-filled-button,
-        #controls md-outlined-button {
-            --md-filled-button-container-color: var(--md-sys-color-primary);
-            --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
-            --md-outlined-button-outline-color: var(--md-sys-color-outline);
-            --md-outlined-button-label-text-color: var(--md-sys-color-on-surface);
-            font-size: 14px;
-            height: 40px;
-        }
-
-        #controls md-filled-button:hover,
-        #controls md-outlined-button:hover {
-            --md-filled-button-hover-container-color: var(--md-sys-color-primary-container);
-            --md-outlined-button-hover-outline-color: var(--md-sys-color-primary);
-        }
-
-        /* Active state for buttons */
-        #controls md-filled-button.active {
-            --md-filled-button-container-color: var(--md-sys-color-tertiary);
-            --md-filled-button-label-text-color: var(--md-sys-color-on-tertiary);
-        }
-
-        #controls md-outlined-button.active {
-            --md-outlined-button-outline-color: var(--md-sys-color-primary);
-            --md-outlined-button-label-text-color: var(--md-sys-color-primary);
-            background: var(--md-sys-color-primary-container);
         }
 
         /* Act Navigation Dots */
@@ -562,35 +654,34 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--md-sys-color-surface-container);
+            background: var(--bg-surface-mid);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
-            color: var(--md-sys-color-on-surface-variant);
+            color: var(--text-secondary);
             transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-            border: 1px solid var(--md-sys-color-outline-variant);
-            box-shadow:
-                0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                0 1px 3px 1px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--text-tertiary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .act-dot:hover {
-            background: var(--md-sys-color-surface-container-high);
+            background: var(--bg-surface-light);
+            border-color: var(--primary-start);
+            color: var(--primary-start);
             transform: scale(1.1);
-            box-shadow:
-                0 2px 4px 0 rgba(0, 0, 0, 0.3),
-                0 3px 5px 2px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
         }
 
         .act-dot.active {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            border-color: var(--md-sys-color-primary);
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            color: white;
+            border-color: var(--primary-start);
             box-shadow:
-                0 0 0 2px var(--md-sys-color-primary-container);
+                0 0 20px var(--primary-glow),
+                0 0 0 3px rgba(6, 182, 212, 0.2);
         }
 
         /* Comparison Layout */
@@ -603,9 +694,11 @@
 
         .comparison-section {
             padding: 24px;
-            border-radius: var(--md-sys-shape-corner-medium);
-            border-left: 6px solid;
-            background: var(--md-sys-color-surface-container);
+            border-radius: var(--radius-md);
+            border-left: 4px solid;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .comparison-section.traditional {
@@ -652,7 +745,7 @@
         }
 
         /* ============================================
-           SCROLLBAR - Material Design
+           SCROLLBAR - Web3 Styling
            ============================================ */
 
         ::-webkit-scrollbar {
@@ -660,17 +753,18 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--md-sys-color-surface);
+            background: var(--bg-surface-dark);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--md-sys-color-outline-variant);
-            border-radius: var(--md-sys-shape-corner-small);
-            border: 2px solid var(--md-sys-color-surface);
+            background: var(--bg-surface-light);
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--bg-surface-dark);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--md-sys-color-outline);
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            box-shadow: 0 0 10px var(--primary-glow);
         }
     </style>
 </head>
@@ -689,7 +783,10 @@
                             </div>
                             <div class="phone-app-header">Artificial CU</div>
                             <div class="phone-content" id="act1-messages">
-                                <div class="message-ai">Hey Sarah! How can I help you today?</div>
+                                <div class="message-row">
+                                    <div class="message-avatar ai-avatar">🤖</div>
+                                    <div class="message-bubble message-ai">Hey Sarah! How can I help you today?</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -731,12 +828,21 @@
                             </div>
                             <div class="phone-app-header">Artificial CU</div>
                             <div class="phone-content" id="act2-messages">
-                                <div class="message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
-                                <div class="message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
-                                <div class="typing-indicator">
-                                    <div class="typing-dot"></div>
-                                    <div class="typing-dot"></div>
-                                    <div class="typing-dot"></div>
+                                <div class="message-row user-message">
+                                    <div class="message-avatar user-avatar">S</div>
+                                    <div class="message-bubble message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
+                                </div>
+                                <div class="message-row">
+                                    <div class="message-avatar ai-avatar">🤖</div>
+                                    <div class="message-bubble message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
+                                </div>
+                                <div class="message-row">
+                                    <div class="message-avatar ai-avatar">🤖</div>
+                                    <div class="typing-indicator">
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                        <div class="typing-dot"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -782,15 +888,15 @@
 
                         <!-- Timeline Comparison -->
                         <div style="margin-bottom: 40px; padding: 25px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 2px solid var(--alert-amber);">
-                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--alert-amber);">❌ Traditional Funding</div>
+                            <div style="font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--alert-amber);">❌ Traditional Banking</div>
                             <div style="display: flex; align-items: center; margin: 20px 0; gap: 15px;">
-                                <div style="font-size: 32px; font-weight: 700; color: var(--urgent-red); min-width: 120px;">1-3 DAYS</div>
+                                <div style="font-size: 32px; font-weight: 700; color: var(--urgent-red); min-width: 180px;">CLOSED</div>
                                 <div style="flex: 1; height: 4px; background: linear-gradient(90deg, transparent, var(--alert-amber), transparent); border-radius: 2px;"></div>
                             </div>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
-                                <div style="font-size: 20px; color: white;">Next-day ACH at best</div>
-                                <div style="font-size: 20px; color: white;">Banking hours only</div>
-                                <div style="font-size: 20px; color: white;">Weekend/holiday delays</div>
+                                <div style="font-size: 20px; color: white;">Branch closed (Saturday night)</div>
+                                <div style="font-size: 20px; color: white;">Earliest: Monday 9 AM</div>
+                                <div style="font-size: 20px; color: white;">1-2 day approval process</div>
                                 <div style="font-size: 20px; color: white;">Sarah misses work Monday</div>
                             </div>
                         </div>
@@ -815,8 +921,8 @@
                         <!-- The Real Advantage -->
                         <div style="padding: 20px; background: rgba(46, 204, 113, 0.25); border: 2px solid var(--trust-green); border-radius: 12px; text-align: center;">
                             <div style="font-size: 18px; color: white; opacity: 0.95; margin-bottom: 8px;">THE CRITICAL DIFFERENCE</div>
-                            <div style="font-size: 32px; font-weight: 900; color: var(--trust-green); line-height: 1.2;">Instant Settlement<br/>When Members Need It</div>
-                            <div style="font-size: 16px; color: white; margin-top: 12px;">Saturday night. Holidays. Weekends. Anytime.</div>
+                            <div style="font-size: 32px; font-weight: 900; color: var(--trust-green); line-height: 1.2;">24/7 Automated Service<br/>When Members Need It</div>
+                            <div style="font-size: 16px; color: white; margin-top: 12px;">Saturday night. Holidays. Weekends. Automated approval decisions and funding.</div>
                         </div>
                     </div>
                 </div>
@@ -842,11 +948,11 @@
                         <div style="margin-top: 32px; padding: 24px; background: rgba(46, 204, 113, 0.1); border: 2px solid var(--trust-green); border-radius: 8px;">
                             <div style="font-size: 24px; font-weight: 600; margin-bottom: 24px;">Three Technologies in Sync:</div>
                             <div style="margin-bottom: 24px; padding: 16px; background: rgba(241, 196, 15, 0.2); border: 1px solid var(--stablecoin-gold); border-radius: 6px; font-size: 16px; line-height: 1.6;">
-                                ⚠️ <strong>Funded via stablecoin infrastructure</strong> - not NCUA insured. Member confirms understanding.
+                                ⚠️ <strong>Loan funded via stablecoin network for instant 24/7 settlement.</strong> Funds are NCUA insured once deposited to your account.
                             </div>
                             <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; align-items: center;">
-                                <span class="tech-badge tech-ai">🤖 AI</span>
-                                <span class="tech-badge tech-banking">🔵 Banking</span>
+                                <span class="tech-badge tech-ai">🤖 Agentic AI</span>
+                                <span class="tech-badge tech-banking">🔵 Open Banking</span>
                                 <span class="tech-badge tech-stablecoin">💰 Stablecoins</span>
                             </div>
                             <p class="text-normal" style="margin: 0;">All working together to serve Sarah in her moment of need</p>
@@ -891,12 +997,12 @@
                         <div style="margin-bottom: 40px; padding: 25px; background: rgba(230, 126, 34, 0.3); border: 2px solid var(--alert-amber); border-radius: 12px;">
                             <h3 style="color: var(--alert-amber); margin-bottom: 20px;">What Traditional Banking Would Have Done ❌</h3>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 24px; line-height: 2;">
-                                <div>• Applied by mail Monday</div>
-                                <div>• Funding takes 3-5 days</div>
-                                <div>• Missed work = lost income</div>
+                                <div>• Wait until Monday to apply</div>
+                                <div>• 1-2 day approval process</div>
+                                <div>• No service on weekends</div>
+                                <div>• Misses work = lost income</div>
                                 <div>• Forced to payday lender</div>
                                 <div>• Leaves CU for fintech</div>
-                                <div>• Pays 400% predatory rate</div>
                             </div>
                         </div>
 
@@ -946,9 +1052,9 @@
                         <div style="margin-top: 40px; padding: 30px; background: rgba(230, 126, 34, 0.2); border-left: 4px solid var(--alert-amber); border-radius: 8px;">
                             <h2 style="color: var(--alert-amber); margin-bottom: 20px;">The Competitive Reality</h2>
                             <ul style="font-size: 24px; line-height: 2;">
-                                <li>• Fintech companies are building this now</li>
-                                <li>• Large banks are building this now</li>
-                                <li>• Your members expect this now</li>
+                                <li>Fintech companies are building this now</li>
+                                <li>Large banks are building this now</li>
+                                <li>Your members expect this now</li>
                             </ul>
                             <p class="text-large" style="margin-top: 30px; color: var(--urgent-red);">The question isn't whether to build it.<br/>The question is whether you'll lead or follow.</p>
                         </div>
@@ -970,9 +1076,9 @@
             <div class="control-group">
                 <div class="control-label">Scene</div>
                 <div class="button-group">
-                    <md-filled-button id="playBtn">Play</md-filled-button>
-                    <md-outlined-button id="pauseBtn">Pause</md-outlined-button>
-                    <md-outlined-button id="restartBtn">Restart</md-outlined-button>
+                    <button class="web3-btn web3-btn-primary" id="playBtn">Play</button>
+                    <button class="web3-btn web3-btn-secondary" id="pauseBtn">Pause</button>
+                    <button class="web3-btn web3-btn-secondary" id="restartBtn">Restart</button>
                 </div>
             </div>
 
@@ -1091,17 +1197,25 @@
                 if (startStep <= 1) {
                     state.currentStep = 1;
                     const msgContainer = document.getElementById('act1-messages');
-                    msgContainer.innerHTML = '<div class="message-ai">Hey Sarah! How can I help you today?</div>';
+                    msgContainer.innerHTML = `
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai">Hey Sarah! How can I help you today?</div>
+                        </div>
+                    `;
                     await sleep(1500);
                 }
 
                 if (startStep <= 2) {
                     state.currentStep = 2;
                     const msgContainer = document.getElementById('act1-messages');
-                    const userMsg = document.createElement('div');
-                    userMsg.className = 'message-user fade-in';
-                    userMsg.textContent = 'My car broke down and I need $1,200 for repairs by Monday morning...';
-                    msgContainer.appendChild(userMsg);
+                    const userMsgRow = document.createElement('div');
+                    userMsgRow.className = 'message-row user-message fade-in';
+                    userMsgRow.innerHTML = `
+                        <div class="message-avatar user-avatar">S</div>
+                        <div class="message-bubble message-user">My car broke down and I need $1,200 for repairs by Monday morning...</div>
+                    `;
+                    msgContainer.appendChild(userMsgRow);
                     await sleep(CONFIG.acts[0].duration * 1000 - 2000);
                 }
 
@@ -1122,12 +1236,21 @@
                     state.currentStep = 0;
                     const msgContainer = document.getElementById('act2-messages');
                     msgContainer.innerHTML = `
-                        <div class="message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
-                        <div class="message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
-                        <div class="typing-indicator">
-                            <div class="typing-dot"></div>
-                            <div class="typing-dot"></div>
-                            <div class="typing-dot"></div>
+                        <div class="message-row user-message">
+                            <div class="message-avatar user-avatar">S</div>
+                            <div class="message-bubble message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="typing-indicator">
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                                <div class="typing-dot"></div>
+                            </div>
                         </div>
                     `;
 
@@ -1248,13 +1371,16 @@
                     state.currentStep = 0;
                     const contentContainer = document.getElementById('act4-content');
                     contentContainer.innerHTML = `
-                        <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
-                            <div class="message-ai">Option 2: Instant Emergency Loan</div>
-                            <div class="message-ai" style="font-size: 14px; opacity: 0.8;">
-                                💰 Amount: $1,200<br/>
-                                📅 APR: 6.9%<br/>
-                                ⏱️ Term: 6 months<br/>
-                                ✓ Approved now
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai">
+                                <div style="font-weight: 600; margin-bottom: 6px;">Option 2: Instant Emergency Loan</div>
+                                <div style="font-size: 14px; opacity: 0.9;">
+                                    💰 Amount: $1,200<br/>
+                                    📅 APR: 6.9%<br/>
+                                    ⏱️ Term: 6 months<br/>
+                                    ✓ Approved now
+                                </div>
                             </div>
                         </div>
                     `;
@@ -1264,11 +1390,13 @@
                 if (startStep <= 1) {
                     state.currentStep = 1;
                     const contentContainer = document.getElementById('act4-content');
-                    const confirmMsg = document.createElement('div');
-                    confirmMsg.className = 'message-user fade-in';
-                    confirmMsg.style.fontSize = '14px';
-                    confirmMsg.innerHTML = 'Yes, I want to move forward with this loan. ✓';
-                    contentContainer.appendChild(confirmMsg);
+                    const confirmMsgRow = document.createElement('div');
+                    confirmMsgRow.className = 'message-row user-message fade-in';
+                    confirmMsgRow.innerHTML = `
+                        <div class="message-avatar user-avatar">S</div>
+                        <div class="message-bubble message-user">Yes, I want to move forward with this loan. ✓</div>
+                    `;
+                    contentContainer.appendChild(confirmMsgRow);
 
                     await sleep(CONFIG.acts[3].duration * 1000 - 1000);
                 }
@@ -1290,8 +1418,9 @@
                     state.currentStep = 0;
                     const fundingContainer = document.getElementById('act5-funding');
                     fundingContainer.innerHTML = `
-                        <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
-                            <div class="message-ai">Processing your loan...</div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai">Processing your loan...</div>
                         </div>
                     `;
                     const timerDisplay = document.getElementById('act5-timer');
@@ -1303,15 +1432,27 @@
                     state.currentStep = 1;
                     const fundingContainer = document.getElementById('act5-funding');
                     const timerDisplay = document.getElementById('act5-timer');
-                    fundingContainer.innerHTML += `<div class="message-ai" style="color: var(--trust-green); font-size: 32px;">✓ Approved</div>`;
-                    timerDisplay.innerHTML = '<span style="color: var(--trust-green); font-size: 32px;">✓ Approved</span>';
+                    const msgRow = document.createElement('div');
+                    msgRow.className = 'message-row';
+                    msgRow.innerHTML = `
+                        <div class="message-avatar ai-avatar">🤖</div>
+                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
+                    `;
+                    fundingContainer.appendChild(msgRow);
+                    timerDisplay.innerHTML = '<span style="color: var(--trust-green);">✓ Approved</span>';
                     await sleep(800);
                 }
 
                 if (startStep <= 2) {
                     state.currentStep = 2;
                     const fundingContainer = document.getElementById('act5-funding');
-                    fundingContainer.innerHTML += `<div class="message-ai" style="color: var(--trust-green); font-size: 32px;">✓ Generating documents</div>`;
+                    const msgRow = document.createElement('div');
+                    msgRow.className = 'message-row';
+                    msgRow.innerHTML = `
+                        <div class="message-avatar ai-avatar">🤖</div>
+                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
+                    `;
+                    fundingContainer.appendChild(msgRow);
                     await sleep(600);
                 }
 
@@ -1319,20 +1460,16 @@
                     state.currentStep = 3;
                     const fundingContainer = document.getElementById('act5-funding');
                     const timerDisplay = document.getElementById('act5-timer');
-                    fundingContainer.innerHTML += `<div class="message-ai" style="color: var(--trust-green); font-size: 32px;">✓ Transferring funds...</div>`;
+                    const msgRow = document.createElement('div');
+                    msgRow.className = 'message-row';
+                    msgRow.innerHTML = `
+                        <div class="message-avatar ai-avatar">🤖</div>
+                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds...</div>
+                    `;
+                    fundingContainer.appendChild(msgRow);
+                    timerDisplay.textContent = `Funding complete`;
 
-                    let progress = 0;
-                    const progressInterval = setInterval(() => {
-                        progress += Math.random() * 0.4;
-                        if (progress > 1) {
-                            progress = 1;
-                            clearInterval(progressInterval);
-                        }
-                        const progressPercent = Math.floor(progress * 100);
-                        timerDisplay.textContent = `Funding: ${progressPercent}%`;
-                    }, 200);
-
-                    await sleep(1500);
+                    await sleep(800);
                 }
 
                 if (startStep <= 4) {
@@ -1340,11 +1477,21 @@
                     const fundingContainer = document.getElementById('act5-funding');
                     const timerDisplay = document.getElementById('act5-timer');
                     fundingContainer.innerHTML = `
-                        <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
-                            <div class="message-ai">✓ Approved</div>
-                            <div class="message-ai">✓ Generating documents</div>
-                            <div class="message-ai">✓ Transferring funds</div>
-                            <div class="message-ai" style="background: rgba(46, 204, 113, 0.2); border-left: 4px solid var(--trust-green); color: var(--trust-green); font-size: 24px; padding: 12px;">
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds</div>
+                        </div>
+                        <div class="message-row">
+                            <div class="message-avatar ai-avatar">🤖</div>
+                            <div class="message-bubble message-ai" style="background: rgba(46, 204, 113, 0.25); border: 2px solid var(--trust-green); color: var(--trust-green); padding: 16px; font-size: 17px; font-weight: 600; line-height: 1.6;">
                                 💚 $1,200.00 deposited<br/>
                                 New balance: $1,540.00<br/>
                                 ⚡ Time: 42 seconds
