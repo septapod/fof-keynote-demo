@@ -114,11 +114,12 @@
 
         /* ============================================
            TYPOGRAPHY - PROJECTION OPTIMIZED
-           Scaled 2-3x larger for viewing from 30+ feet
+           Scaled ~1.2-1.5x for viewing from distance
+           Balanced for readability without overflow
            ============================================ */
 
         body {
-            font-size: 48px;
+            font-size: 32px;
             line-height: 1.5;
             font-weight: 400;
             letter-spacing: 0.01em;
@@ -126,7 +127,7 @@
 
         /* Display Scale - For Major Titles */
         h1 {
-            font-size: 120px;
+            font-size: 84px;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 0.3em;
@@ -135,7 +136,7 @@
 
         /* Headline Scale - For Section Headings */
         h2 {
-            font-size: 96px;
+            font-size: 64px;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 0.4em;
@@ -143,7 +144,7 @@
         }
 
         h3 {
-            font-size: 72px;
+            font-size: 48px;
             font-weight: 600;
             line-height: 1.3;
             margin-bottom: 0.5em;
@@ -152,21 +153,21 @@
 
         /* Body Scale - For Content */
         .text-large {
-            font-size: 64px;
+            font-size: 52px;
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0;
         }
 
         .text-normal {
-            font-size: 48px;
+            font-size: 32px;
             font-weight: 400;
             line-height: 1.6;
             letter-spacing: 0.01em;
         }
 
         .text-small {
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 400;
             line-height: 1.5;
             letter-spacing: 0.02em;
@@ -174,7 +175,7 @@
 
         /* Data/Numeric Display */
         .text-data {
-            font-size: 56px;
+            font-size: 42px;
             font-weight: 700;
             font-family: 'Roboto Mono', 'Courier New', monospace;
             letter-spacing: 0.02em;
@@ -352,13 +353,13 @@
         .tech-badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 20px;
+            gap: 10px;
+            padding: 10px 16px;
             border-radius: var(--md-sys-shape-corner-medium);
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 600;
-            margin-right: 12px;
-            margin-bottom: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
             letter-spacing: 0.05em;
         }
 
@@ -409,7 +410,7 @@
         .data-point.stagger-5 { animation-delay: 0.9s; }
 
         .data-label {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--md-sys-color-on-surface-variant);
             text-transform: uppercase;
@@ -417,22 +418,22 @@
         }
 
         .data-value {
-            font-size: 56px;
+            font-size: 40px;
             font-weight: 700;
-            margin-top: 12px;
+            margin-top: 10px;
             color: var(--trust-green);
         }
 
         /* Timer Display - Projection Optimized */
         .timer-display {
-            font-size: 80px;
+            font-size: 56px;
             font-weight: 900;
             color: var(--md-sys-color-tertiary);
-            padding: 32px 40px;
+            padding: 24px 32px;
             text-align: center;
             border: 3px solid var(--md-sys-color-tertiary);
             border-radius: var(--md-sys-shape-corner-large);
-            margin: 32px 0;
+            margin: 24px 0;
             background: var(--md-sys-color-tertiary-container);
             /* Material Elevation for emphasis */
             box-shadow:
@@ -518,42 +519,36 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
-        /* Material Button Styling (fallback for non-Material buttons) */
-        .control-btn {
-            background: var(--md-sys-color-secondary-container);
-            color: var(--md-sys-color-on-secondary-container);
-            border: none;
-            padding: 12px 16px;
-            border-radius: var(--md-sys-shape-corner-small);
+        /* Material Button Customization */
+        #controls md-filled-button,
+        #controls md-outlined-button {
+            --md-filled-button-container-color: var(--md-sys-color-primary);
+            --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
+            --md-outlined-button-outline-color: var(--md-sys-color-outline);
+            --md-outlined-button-label-text-color: var(--md-sys-color-on-surface);
             font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow:
-                0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                0 1px 3px 1px rgba(0, 0, 0, 0.15);
+            height: 40px;
         }
 
-        .control-btn:hover {
-            background: var(--md-sys-color-secondary);
-            color: var(--md-sys-color-on-secondary);
-            transform: translateY(-2px);
-            box-shadow:
-                0 2px 4px 0 rgba(0, 0, 0, 0.3),
-                0 3px 5px 2px rgba(0, 0, 0, 0.15);
+        #controls md-filled-button:hover,
+        #controls md-outlined-button:hover {
+            --md-filled-button-hover-container-color: var(--md-sys-color-primary-container);
+            --md-outlined-button-hover-outline-color: var(--md-sys-color-primary);
         }
 
-        .control-btn:active {
-            transform: translateY(0);
+        /* Active state for buttons */
+        #controls md-filled-button.active {
+            --md-filled-button-container-color: var(--md-sys-color-tertiary);
+            --md-filled-button-label-text-color: var(--md-sys-color-on-tertiary);
         }
 
-        .control-btn.active {
-            background: var(--md-sys-color-primary);
-            color: var(--md-sys-color-on-primary);
-            box-shadow:
-                0 0 0 2px var(--md-sys-color-primary-container);
+        #controls md-outlined-button.active {
+            --md-outlined-button-outline-color: var(--md-sys-color-primary);
+            --md-outlined-button-label-text-color: var(--md-sys-color-primary);
+            background: var(--md-sys-color-primary-container);
         }
 
         /* Act Navigation Dots */
@@ -624,16 +619,16 @@
         }
 
         .comparison-title {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             letter-spacing: 0;
         }
 
         .comparison-item {
-            font-size: 28px;
-            margin: 16px 0;
-            padding-left: 36px;
+            font-size: 22px;
+            margin: 12px 0;
+            padding-left: 32px;
             position: relative;
             line-height: 1.5;
         }
@@ -644,7 +639,7 @@
             position: absolute;
             left: 0;
             font-weight: 900;
-            font-size: 32px;
+            font-size: 24px;
         }
 
         .comparison-section.modern .comparison-item::before {
@@ -653,7 +648,7 @@
             position: absolute;
             left: 0;
             font-weight: 900;
-            font-size: 32px;
+            font-size: 24px;
         }
 
         /* ============================================
@@ -806,7 +801,7 @@
                         <div style="margin-bottom: 30px; padding: 25px; background: rgba(241,196,15,0.1); border-radius: 12px; border: 2px solid var(--stablecoin-gold);">
                             <div style="font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--stablecoin-gold);">✓ Stablecoin Funding</div>
                             <div style="display: flex; align-items: center; margin: 20px 0; gap: 15px;">
-                                <div style="font-size: 48px; font-weight: 900; color: var(--trust-green); min-width: 120px;">30 SEC</div>
+                                <div style="font-size: 36px; font-weight: 900; color: var(--trust-green); min-width: 120px;">30 SEC</div>
                                 <div style="flex: 1; height: 6px; background: linear-gradient(90deg, var(--trust-green), var(--stablecoin-gold)); border-radius: 3px;"></div>
                             </div>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
@@ -820,7 +815,7 @@
                         <!-- The Real Advantage -->
                         <div style="padding: 20px; background: rgba(46, 204, 113, 0.25); border: 2px solid var(--trust-green); border-radius: 12px; text-align: center;">
                             <div style="font-size: 18px; color: white; opacity: 0.95; margin-bottom: 8px;">THE CRITICAL DIFFERENCE</div>
-                            <div style="font-size: 42px; font-weight: 900; color: var(--trust-green); line-height: 1.2;">Instant Settlement<br/>When Members Need It</div>
+                            <div style="font-size: 32px; font-weight: 900; color: var(--trust-green); line-height: 1.2;">Instant Settlement<br/>When Members Need It</div>
                             <div style="font-size: 16px; color: white; margin-top: 12px;">Saturday night. Holidays. Weekends. Anytime.</div>
                         </div>
                     </div>
@@ -907,7 +902,7 @@
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0;">
                             <div style="padding: 30px; background: rgba(155, 89, 182, 0.2); border-left: 4px solid var(--ai-purple); border-radius: 8px;">
-                                <h3 style="color: var(--ai-purple); margin-bottom: 20px; font-size: 48px;">🤖 Agentic AI</h3>
+                                <h3 style="color: var(--ai-purple); margin-bottom: 20px; font-size: 40px;">🤖 Agentic AI</h3>
                                 <p class="text-normal" style="margin: 15px 0;"><strong>What it did:</strong></p>
                                 <ul style="font-size: 24px; line-height: 2; margin-left: 20px;">
                                     <li>✓ Understood emergency context</li>
@@ -918,7 +913,7 @@
                             </div>
 
                             <div style="padding: 30px; background: rgba(52, 152, 219, 0.2); border-left: 4px solid var(--data-blue); border-radius: 8px;">
-                                <h3 style="color: var(--data-blue); margin-bottom: 20px; font-size: 48px;">🔵 Open Banking</h3>
+                                <h3 style="color: var(--data-blue); margin-bottom: 20px; font-size: 40px;">🔵 Open Banking</h3>
                                 <p class="text-normal" style="margin: 15px 0;"><strong>What it did:</strong></p>
                                 <ul style="font-size: 24px; line-height: 2; margin-left: 20px;">
                                     <li>✓ Connected 4+ institutions</li>
@@ -931,7 +926,7 @@
 
                         <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin: 60px 0;">
                             <div style="padding: 30px; background: rgba(241, 196, 15, 0.2); border-left: 4px solid var(--stablecoin-gold); border-radius: 8px;">
-                                <h3 style="color: var(--stablecoin-gold); margin-bottom: 20px; font-size: 48px;">💰 Stablecoin Infrastructure</h3>
+                                <h3 style="color: var(--stablecoin-gold); margin-bottom: 20px; font-size: 40px;">💰 Stablecoin Infrastructure</h3>
                                 <p class="text-normal" style="margin: 15px 0;"><strong>What it did:</strong></p>
                                 <ul style="font-size: 24px; line-height: 2; margin-left: 20px;">
                                     <li>✓ Enabled instant 24/7 settlement</li>
@@ -975,9 +970,9 @@
             <div class="control-group">
                 <div class="control-label">Scene</div>
                 <div class="button-group">
-                    <button class="control-btn" id="playBtn">Play</button>
-                    <button class="control-btn" id="pauseBtn">Pause</button>
-                    <button class="control-btn" id="restartBtn">Restart</button>
+                    <md-filled-button id="playBtn">Play</md-filled-button>
+                    <md-outlined-button id="pauseBtn">Pause</md-outlined-button>
+                    <md-outlined-button id="restartBtn">Restart</md-outlined-button>
                 </div>
             </div>
 
