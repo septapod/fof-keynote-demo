@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo 02: Complete Experience - Artificial CU</title>
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Member‑First Lending" />
+    <meta property="og:description" content="Incredible service, resilient community finance." />
+    <meta property="og:image" content="https://cu-ai-ob-demo.vercel.app/og.png" />
+    <meta property="og:url" content="https://cu-ai-ob-demo.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Member‑First Lending" />
+    <meta name="twitter:description" content="Incredible service, resilient community finance." />
+    <meta name="twitter:image" content="https://cu-ai-ob-demo.vercel.app/og.png" />
+
     <!-- Google Fonts - Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -567,121 +578,130 @@
         .full-screen.left-aligned { align-items: flex-start; text-align: left; }
 
         /* ============================================
-           CONTROL PANEL - Web3 Glassmorphism
+           SIMPLE NAVIGATION CONTROLS
            ============================================ */
 
-        #controls {
+        /* Navigation Arrows - Floating at Bottom */
+        .nav-arrow {
             position: fixed;
-            bottom: 24px;
-            left: 24px;
-            /* Glassmorphism */
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            border-radius: var(--radius-xl);
-            padding: 24px;
-            z-index: 1000;
-            font-size: 16px;
-            max-width: 320px;
-            /* Neon glow */
-            box-shadow:
-                0 0 40px rgba(6, 182, 212, 0.2),
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-
-        #controls:hover {
-            box-shadow:
-                0 0 50px rgba(6, 182, 212, 0.3),
-                0 12px 40px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        #controls.hidden {
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .control-group {
-            margin-bottom: 20px;
-        }
-
-        .control-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .speed-control {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 12px 0;
-        }
-
-        #speedSlider {
-            flex: 1;
-            cursor: pointer;
-        }
-
-        #speedDisplay {
-            font-weight: 700;
-            color: var(--tertiary-start);
-            min-width: 48px;
-            font-size: 16px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        /* Act Navigation Dots */
-        .act-counter {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .act-dot {
-            width: 40px;
-            height: 40px;
+            bottom: 32px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: var(--bg-surface-mid);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(6, 182, 212, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 20px;
+            color: rgba(6, 182, 212, 0.9);
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-            border: 2px solid var(--text-tertiary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .act-dot:hover {
-            background: var(--bg-surface-light);
-            border-color: var(--primary-start);
-            color: var(--primary-start);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-        }
-
-        .act-dot.active {
-            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
-            color: white;
-            border-color: var(--primary-start);
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             box-shadow:
-                0 0 20px var(--primary-glow),
-                0 0 0 3px rgba(6, 182, 212, 0.2);
+                0 0 20px rgba(6, 182, 212, 0.2),
+                0 4px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            user-select: none;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.6);
+            color: rgba(6, 182, 212, 1);
+            transform: scale(1.1);
+            box-shadow:
+                0 0 30px rgba(6, 182, 212, 0.4),
+                0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-arrow:active {
+            transform: scale(0.95);
+        }
+
+        .nav-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-left {
+            left: 32px;
+        }
+
+        .nav-right {
+            right: 32px;
+        }
+
+        /* Restart Button - Top Left */
+        .nav-restart {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.85), rgba(20, 184, 166, 0.85));
+            border: 2px solid rgba(6, 182, 212, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow:
+                0 0 25px rgba(6, 182, 212, 0.5),
+                0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            user-select: none;
+        }
+
+        .nav-restart:hover {
+            transform: rotate(180deg) scale(1.1);
+            background: linear-gradient(135deg, rgba(6, 182, 212, 1), rgba(20, 184, 166, 1));
+            box-shadow:
+                0 0 35px rgba(6, 182, 212, 0.7),
+                0 6px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-restart:active {
+            transform: rotate(180deg) scale(0.95);
+        }
+
+        /* Act Indicator Dots - Bottom Center */
+        #actIndicator {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            user-select: none;
+        }
+
+        .act-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .act-indicator-dot.active {
+            background: rgba(6, 182, 212, 0.8);
+            border-color: rgba(6, 182, 212, 0.9);
+            box-shadow:
+                0 0 15px rgba(6, 182, 212, 0.5),
+                0 2px 8px rgba(0, 0, 0, 0.3);
+            transform: scale(1.3);
         }
 
         /* Comparison Layout */
@@ -1063,37 +1083,20 @@
             </div>
         </div>
 
-        <!-- Controls Overlay -->
-        <div id="controls">
-            <div class="control-group">
-                <div class="control-label">Animation Speed</div>
-                <div class="speed-control">
-                    <input type="range" id="speedSlider" min="0.25" max="2" step="0.25" value="1" style="width: 60px; cursor: pointer;">
-                    <span id="speedDisplay">1.0x</span>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">Scene</div>
-                <div class="button-group">
-                    <button class="web3-btn web3-btn-primary" id="playBtn">Play</button>
-                    <button class="web3-btn web3-btn-secondary" id="pauseBtn">Pause</button>
-                    <button class="web3-btn web3-btn-secondary" id="restartBtn">Restart</button>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <div class="control-label">Jump to Act</div>
-                <div class="act-counter" id="actDots"></div>
-            </div>
-
-            <div class="control-label" style="margin-top: 16px; opacity: 0.6;">
-                Keyboard Shortcuts
-            </div>
-            <div style="font-size: 12px; line-height: 1.8; opacity: 0.6; margin-top: 8px;">
-                Space: Play/Pause • R: Restart • 1-6: Jump to Act • +/-: Speed • C: Hide controls
-            </div>
+        <!-- Simple Navigation Controls -->
+        <div id="navPrevious" class="nav-arrow nav-left" title="Previous Act">
+            ◀
         </div>
+
+        <div id="navNext" class="nav-arrow nav-right" title="Next Act">
+            ▶
+        </div>
+
+        <div id="navRestart" class="nav-restart" title="Restart">
+            ⟲
+        </div>
+
+        <div id="actIndicator"></div>
     </div>
 
     <script>
@@ -1109,60 +1112,11 @@
         };
 
         const state = {
-            currentAct: 0,
-            currentStep: 0,
-            isPlaying: false,
-            isPaused: false,
-            animationSpeed: 1,
-            controlsHidden: false,
-            abortController: null,
-            pausedSleepState: null  // Stores {act, step, remaining} when paused mid-sleep
+            currentAct: 0
         };
 
-        function getAdjustedTiming(ms) {
-            return ms / state.animationSpeed;
-        }
-
         function sleep(ms) {
-            return new Promise((resolve, reject) => {
-                // Check if we're resuming the same sleep that was paused
-                let actualDuration = ms;
-                if (state.pausedSleepState &&
-                    state.pausedSleepState.act === state.currentAct &&
-                    state.pausedSleepState.step === state.currentStep) {
-                    // Resume with remaining time
-                    actualDuration = state.pausedSleepState.remaining;
-                    state.pausedSleepState = null;
-                }
-
-                const adjustedMs = getAdjustedTiming(actualDuration);
-                const startTime = Date.now();
-                const timeout = setTimeout(resolve, adjustedMs);
-
-                // Store abort function in state for pause functionality
-                state.abortController = {
-                    abort: () => {
-                        clearTimeout(timeout);
-
-                        // Calculate remaining time for resume
-                        const elapsed = Date.now() - startTime;
-                        const remaining = actualDuration - (elapsed * state.animationSpeed);
-                        state.pausedSleepState = {
-                            act: state.currentAct,
-                            step: state.currentStep,
-                            remaining: Math.max(0, remaining)
-                        };
-
-                        reject(new Error('PAUSED'));
-                    }
-                };
-            });
-        }
-
-        function setAnimationSpeed(speed) {
-            state.animationSpeed = speed;
-            document.documentElement.style.setProperty('--anim-speed', speed);
-            document.getElementById('speedDisplay').textContent = speed.toFixed(2) + 'x';
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         function showAct(actIndex) {
@@ -1176,549 +1130,332 @@
             }
 
             state.currentAct = actIndex;
-            updateControls();
-        }
-
-        function updateControls() {
-            document.querySelectorAll('.act-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === state.currentAct);
-            });
         }
 
         async function performAct1() {
-            try {
-                const startStep = (state.currentAct === 0) ? state.currentStep : 0;
+            await sleep(500);
 
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    await sleep(500);
-                }
+            const msgContainer = document.getElementById('act1-messages');
+            msgContainer.innerHTML = `
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai">Hey Sarah! How can I help you today?</div>
+                </div>
+            `;
+            await sleep(1500);
 
-                if (startStep <= 1) {
-                    state.currentStep = 1;
-                    const msgContainer = document.getElementById('act1-messages');
-                    msgContainer.innerHTML = `
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai">Hey Sarah! How can I help you today?</div>
-                        </div>
-                    `;
-                    await sleep(1500);
-                }
-
-                if (startStep <= 2) {
-                    state.currentStep = 2;
-                    const msgContainer = document.getElementById('act1-messages');
-                    const userMsgRow = document.createElement('div');
-                    userMsgRow.className = 'message-row user-message fade-in';
-                    userMsgRow.innerHTML = `
-                        <div class="message-avatar user-avatar">S</div>
-                        <div class="message-bubble message-user">My car broke down and I need $1,200 for repairs by Monday morning...</div>
-                    `;
-                    msgContainer.appendChild(userMsgRow);
-                    await sleep(CONFIG.acts[0].duration * 1000 - 2000);
-                }
-
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
-            }
+            const userMsgRow = document.createElement('div');
+            userMsgRow.className = 'message-row user-message fade-in';
+            userMsgRow.innerHTML = `
+                <div class="message-avatar user-avatar">S</div>
+                <div class="message-bubble message-user">My car broke down and I need $1,200 for repairs by Monday morning...</div>
+            `;
+            msgContainer.appendChild(userMsgRow);
+            await sleep(CONFIG.acts[0].duration * 1000 - 2000);
         }
 
         async function performAct2() {
-            try {
-                const startStep = (state.currentAct === 1) ? state.currentStep : 0;
+            const msgContainer = document.getElementById('act2-messages');
+            msgContainer.innerHTML = `
+                <div class="message-row user-message">
+                    <div class="message-avatar user-avatar">S</div>
+                    <div class="message-bubble message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
 
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    const msgContainer = document.getElementById('act2-messages');
-                    msgContainer.innerHTML = `
-                        <div class="message-row user-message">
-                            <div class="message-avatar user-avatar">S</div>
-                            <div class="message-bubble message-user">My car just broke down and I need $1,200 for repairs by Monday morning to get to work. What can I do?</div>
-                        </div>
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai">I can help you, Sarah. Give me a moment to look at your complete financial situation and find the best solution.</div>
-                        </div>
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="typing-indicator">
-                                <div class="typing-dot"></div>
-                                <div class="typing-dot"></div>
-                                <div class="typing-dot"></div>
-                            </div>
-                        </div>
-                    `;
+            const dataContainer = document.getElementById('act2-data-points');
+            const dataPoints = [
+                { label: 'Artificial CU Checking', value: '$340', emoji: '✓', source: 'Our CU' },
+                { label: 'Artificial CU Savings', value: '$1,800', emoji: '✓', source: 'Our CU' },
+                { label: 'Regions Bank Checking', value: '$215', emoji: '✓', source: 'External' },
+                { label: 'Capital One Credit Card', value: '$890 / $3,500', emoji: '✓', source: 'External' },
+                { label: 'Monthly Verified Income', value: '$3,600', emoji: '✓', source: 'Payroll' }
+            ];
 
-                    const dataContainer = document.getElementById('act2-data-points');
-                    const dataPoints = [
-                        { label: 'Artificial CU Checking', value: '$340', emoji: '✓', source: 'Our CU' },
-                        { label: 'Artificial CU Savings', value: '$1,800', emoji: '✓', source: 'Our CU' },
-                        { label: 'Regions Bank Checking', value: '$215', emoji: '✓', source: 'External' },
-                        { label: 'Capital One Credit Card', value: '$890 / $3,500', emoji: '✓', source: 'External' },
-                        { label: 'Monthly Verified Income', value: '$3,600', emoji: '✓', source: 'Payroll' }
-                    ];
+            dataContainer.innerHTML = '';
+            dataPoints.forEach((point, index) => {
+                const element = document.createElement('div');
+                element.className = `data-point stagger-${index + 1}`;
+                element.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+                        <div class="data-label" style="font-size: 28px; font-weight: 600;">${point.emoji} ${point.label}</div>
+                        <div style="font-size: 18px; opacity: 0.9; color: var(--stablecoin-gold); font-weight: 600;">${point.source}</div>
+                    </div>
+                    <div class="data-value" style="font-size: 44px; font-weight: 700; color: var(--trust-green); margin-top: 8px;">${point.value}</div>
+                `;
+                dataContainer.appendChild(element);
+            });
 
-                    dataContainer.innerHTML = '';
-                    dataPoints.forEach((point, index) => {
-                        const element = document.createElement('div');
-                        element.className = `data-point stagger-${index + 1}`;
-                        element.innerHTML = `
-                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-                                <div class="data-label" style="font-size: 28px; font-weight: 600;">${point.emoji} ${point.label}</div>
-                                <div style="font-size: 18px; opacity: 0.9; color: var(--stablecoin-gold); font-weight: 600;">${point.source}</div>
-                            </div>
-                            <div class="data-value" style="font-size: 44px; font-weight: 700; color: var(--trust-green); margin-top: 8px;">${point.value}</div>
-                        `;
-                        dataContainer.appendChild(element);
-                    });
-                }
+            await sleep(500);
 
-                if (startStep <= 1) {
-                    state.currentStep = 1;
-                    await sleep(500);
-                }
+            const reasoningContainer = document.getElementById('act2-reasoning');
+            const reasoning = [
+                { label: 'Employment Stability', value: 'UMMC: 6 years continuous', icon: '🏥' },
+                { label: 'Payment History', value: '72 MONTHS of on-time payments', icon: '✓' },
+                { label: 'Monthly Capacity', value: '~$700 available after expenses', icon: '💰' },
+                { label: 'Credit Assessment', value: 'APPROVED ✓ Low Risk Profile', icon: '🟢' }
+            ];
 
-                if (startStep <= 2) {
-                    state.currentStep = 2;
-                    const reasoningContainer = document.getElementById('act2-reasoning');
-                    const reasoning = [
-                        { label: 'Employment Stability', value: 'UMMC: 6 years continuous', icon: '🏥' },
-                        { label: 'Payment History', value: '72 MONTHS of on-time payments', icon: '✓' },
-                        { label: 'Monthly Capacity', value: '~$700 available after expenses', icon: '💰' },
-                        { label: 'Credit Assessment', value: 'APPROVED ✓ Low Risk Profile', icon: '🟢' }
-                    ];
+            reasoningContainer.innerHTML = '';
+            reasoning.forEach((item, index) => {
+                const element = document.createElement('div');
+                element.className = `data-point stagger-${index + 6}`;
+                const bgColor = item.icon === '🟢' ? 'rgba(46, 204, 113, 0.2)' : 'rgba(52, 152, 219, 0.2)';
+                element.style.background = bgColor;
+                element.innerHTML = `
+                    <div class="data-label" style="font-size: 28px; font-weight: 600;">${item.icon} ${item.label}</div>
+                    <div class="data-value" style="font-size: 40px; font-weight: 700; margin-top: 8px;">${item.value}</div>
+                `;
+                reasoningContainer.appendChild(element);
+            });
 
-                    reasoningContainer.innerHTML = '';
-                    reasoning.forEach((item, index) => {
-                        const element = document.createElement('div');
-                        element.className = `data-point stagger-${index + 6}`;
-                        const bgColor = item.icon === '🟢' ? 'rgba(46, 204, 113, 0.2)' : 'rgba(52, 152, 219, 0.2)';
-                        element.style.background = bgColor;
-                        element.innerHTML = `
-                            <div class="data-label" style="font-size: 28px; font-weight: 600;">${item.icon} ${item.label}</div>
-                            <div class="data-value" style="font-size: 40px; font-weight: 700; margin-top: 8px;">${item.value}</div>
-                        `;
-                        reasoningContainer.appendChild(element);
-                    });
-
-                    await sleep(CONFIG.acts[1].duration * 1000);
-                }
-
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
-            }
+            await sleep(CONFIG.acts[1].duration * 1000);
         }
 
         async function performAct3() {
-            try {
-                const startStep = (state.currentAct === 2) ? state.currentStep : 0;
+            const optionsContainer = document.getElementById('act3-options');
+            optionsContainer.innerHTML = `
+                <div class="message-ai" style="font-size: 18px;">I found three ways to help you:</div>
 
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    const optionsContainer = document.getElementById('act3-options');
-                    optionsContainer.innerHTML = `
-                        <div class="message-ai" style="font-size: 18px;">I found three ways to help you:</div>
+                <div class="option-card" style="background: rgba(52, 152, 219, 0.15); border: 2px solid var(--data-blue); margin-top: 12px; padding: 16px; border-radius: 8px;">
+                    <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 1: Use Savings</div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Amount: <strong style="color: var(--trust-green); font-size: 26px;">$1,200</strong></div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Interest: <strong style="color: var(--trust-green); font-size: 26px;">$0</strong></div>
+                </div>
 
-                        <div class="option-card" style="background: rgba(52, 152, 219, 0.15); border: 2px solid var(--data-blue); margin-top: 12px; padding: 16px; border-radius: 8px;">
-                            <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 1: Use Savings</div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Amount: <strong style="color: var(--trust-green); font-size: 26px;">$1,200</strong></div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Interest: <strong style="color: var(--trust-green); font-size: 26px;">$0</strong></div>
-                        </div>
+                <div class="option-card" style="background: rgba(46, 204, 113, 0.15); border: 2px solid var(--trust-green); margin-top: 12px; padding: 16px; border-radius: 8px;">
+                    <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 2: Emergency Loan</div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">APR: <strong style="color: var(--trust-green); font-size: 26px;">6.9%</strong></div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Payment: <strong style="color: var(--trust-green); font-size: 26px;">$210/mo</strong></div>
+                </div>
 
-                        <div class="option-card" style="background: rgba(46, 204, 113, 0.15); border: 2px solid var(--trust-green); margin-top: 12px; padding: 16px; border-radius: 8px;">
-                            <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 2: Emergency Loan</div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">APR: <strong style="color: var(--trust-green); font-size: 26px;">6.9%</strong></div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Payment: <strong style="color: var(--trust-green); font-size: 26px;">$210/mo</strong></div>
-                        </div>
+                <div class="option-card" style="background: rgba(155, 89, 182, 0.15); border: 2px solid var(--ai-purple); margin-top: 12px; padding: 16px; border-radius: 8px;">
+                    <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 3: Combination</div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Savings: <strong style="color: var(--trust-green); font-size: 26px;">$800</strong></div>
+                    <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Loan: <strong style="color: var(--trust-green); font-size: 26px;">$400 @ 6.9%</strong></div>
+                </div>
+            `;
 
-                        <div class="option-card" style="background: rgba(155, 89, 182, 0.15); border: 2px solid var(--ai-purple); margin-top: 12px; padding: 16px; border-radius: 8px;">
-                            <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 3: Combination</div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Savings: <strong style="color: var(--trust-green); font-size: 26px;">$800</strong></div>
-                            <div style="font-size: 22px; margin: 6px 0; color: #2c2c2c;">Loan: <strong style="color: var(--trust-green); font-size: 26px;">$400 @ 6.9%</strong></div>
-                        </div>
-                    `;
-                }
-
-                if (startStep <= 1) {
-                    state.currentStep = 1;
-                    await sleep(CONFIG.acts[2].duration * 1000);
-                }
-
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
-            }
+            await sleep(CONFIG.acts[2].duration * 1000);
         }
 
 
         async function performAct4() {
-            try {
-                const startStep = (state.currentAct === 3) ? state.currentStep : 0;
-
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    const contentContainer = document.getElementById('act4-content');
-                    contentContainer.innerHTML = `
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai">
-                                <div style="font-weight: 600; margin-bottom: 6px;">Option 2: Instant Emergency Loan</div>
-                                <div style="font-size: 14px; opacity: 0.9;">
-                                    💰 Amount: $1,200<br/>
-                                    📅 APR: 6.9%<br/>
-                                    ⏱️ Term: 6 months<br/>
-                                    ✓ Approved now
-                                </div>
-                            </div>
+            const contentContainer = document.getElementById('act4-content');
+            contentContainer.innerHTML = `
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai">
+                        <div style="font-weight: 600; margin-bottom: 6px;">Option 2: Instant Emergency Loan</div>
+                        <div style="font-size: 14px; opacity: 0.9;">
+                            💰 Amount: $1,200<br/>
+                            📅 APR: 6.9%<br/>
+                            ⏱️ Term: 6 months<br/>
+                            ✓ Approved now
                         </div>
-                    `;
-                    await sleep(1000);
-                }
+                    </div>
+                </div>
+            `;
+            await sleep(1000);
 
-                if (startStep <= 1) {
-                    state.currentStep = 1;
-                    const contentContainer = document.getElementById('act4-content');
-                    const confirmMsgRow = document.createElement('div');
-                    confirmMsgRow.className = 'message-row user-message fade-in';
-                    confirmMsgRow.innerHTML = `
-                        <div class="message-avatar user-avatar">S</div>
-                        <div class="message-bubble message-user">Yes, I want to move forward with this loan. ✓</div>
-                    `;
-                    contentContainer.appendChild(confirmMsgRow);
+            const confirmMsgRow = document.createElement('div');
+            confirmMsgRow.className = 'message-row user-message fade-in';
+            confirmMsgRow.innerHTML = `
+                <div class="message-avatar user-avatar">S</div>
+                <div class="message-bubble message-user">Yes, I want to move forward with this loan. ✓</div>
+            `;
+            contentContainer.appendChild(confirmMsgRow);
 
-                    await sleep(CONFIG.acts[3].duration * 1000 - 1000);
-                }
-
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
-            }
+            await sleep(CONFIG.acts[3].duration * 1000 - 1000);
         }
 
         async function performAct5() {
-            try {
-                const startStep = (state.currentAct === 4) ? state.currentStep : 0;
+            const fundingContainer = document.getElementById('act5-funding');
+            const timerDisplay = document.getElementById('act5-timer');
 
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    const fundingContainer = document.getElementById('act5-funding');
-                    fundingContainer.innerHTML = `
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai">Processing your loan...</div>
-                        </div>
-                    `;
-                    const timerDisplay = document.getElementById('act5-timer');
-                    timerDisplay.textContent = 'Processing...';
-                    await sleep(1000);
-                }
+            fundingContainer.innerHTML = `
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai">Processing your loan...</div>
+                </div>
+            `;
+            timerDisplay.textContent = 'Processing...';
+            await sleep(1000);
 
-                if (startStep <= 1) {
-                    state.currentStep = 1;
-                    const fundingContainer = document.getElementById('act5-funding');
-                    const timerDisplay = document.getElementById('act5-timer');
-                    const msgRow = document.createElement('div');
-                    msgRow.className = 'message-row';
-                    msgRow.innerHTML = `
-                        <div class="message-avatar ai-avatar">🤖</div>
-                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
-                    `;
-                    fundingContainer.appendChild(msgRow);
-                    timerDisplay.innerHTML = '<span style="color: var(--trust-green);">✓ Approved</span>';
-                    await sleep(800);
-                }
+            const msgRow1 = document.createElement('div');
+            msgRow1.className = 'message-row';
+            msgRow1.innerHTML = `
+                <div class="message-avatar ai-avatar">🤖</div>
+                <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
+            `;
+            fundingContainer.appendChild(msgRow1);
+            timerDisplay.innerHTML = '<span style="color: var(--trust-green);">✓ Approved</span>';
+            await sleep(800);
 
-                if (startStep <= 2) {
-                    state.currentStep = 2;
-                    const fundingContainer = document.getElementById('act5-funding');
-                    const msgRow = document.createElement('div');
-                    msgRow.className = 'message-row';
-                    msgRow.innerHTML = `
-                        <div class="message-avatar ai-avatar">🤖</div>
-                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
-                    `;
-                    fundingContainer.appendChild(msgRow);
-                    await sleep(600);
-                }
+            const msgRow2 = document.createElement('div');
+            msgRow2.className = 'message-row';
+            msgRow2.innerHTML = `
+                <div class="message-avatar ai-avatar">🤖</div>
+                <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
+            `;
+            fundingContainer.appendChild(msgRow2);
+            await sleep(600);
 
-                if (startStep <= 3) {
-                    state.currentStep = 3;
-                    const fundingContainer = document.getElementById('act5-funding');
-                    const timerDisplay = document.getElementById('act5-timer');
-                    const msgRow = document.createElement('div');
-                    msgRow.className = 'message-row';
-                    msgRow.innerHTML = `
-                        <div class="message-avatar ai-avatar">🤖</div>
-                        <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds...</div>
-                    `;
-                    fundingContainer.appendChild(msgRow);
-                    timerDisplay.textContent = `Funding complete`;
+            const msgRow3 = document.createElement('div');
+            msgRow3.className = 'message-row';
+            msgRow3.innerHTML = `
+                <div class="message-avatar ai-avatar">🤖</div>
+                <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds...</div>
+            `;
+            fundingContainer.appendChild(msgRow3);
+            timerDisplay.textContent = `Funding complete`;
+            await sleep(800);
 
-                    await sleep(800);
-                }
+            fundingContainer.innerHTML = `
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds</div>
+                </div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai" style="background: rgba(46, 204, 113, 0.25); border: 2px solid var(--trust-green); color: #1a1a1a; padding: 16px; font-size: 17px; font-weight: 600; line-height: 1.6;">
+                        💚 $1,200.00 deposited<br/>
+                        New balance: $1,540.00<br/>
+                        ⚡ Time: 42 seconds
+                    </div>
+                </div>
+            `;
+            timerDisplay.innerHTML = '<span style="color: var(--trust-green);">✓ Complete in 42 seconds</span>';
 
-                if (startStep <= 4) {
-                    state.currentStep = 4;
-                    const fundingContainer = document.getElementById('act5-funding');
-                    const timerDisplay = document.getElementById('act5-timer');
-                    fundingContainer.innerHTML = `
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Approved</div>
-                        </div>
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Generating documents</div>
-                        </div>
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai" style="color: var(--trust-green);">✓ Transferring funds</div>
-                        </div>
-                        <div class="message-row">
-                            <div class="message-avatar ai-avatar">🤖</div>
-                            <div class="message-bubble message-ai" style="background: rgba(46, 204, 113, 0.25); border: 2px solid var(--trust-green); color: var(--trust-green); padding: 16px; font-size: 17px; font-weight: 600; line-height: 1.6;">
-                                💚 $1,200.00 deposited<br/>
-                                New balance: $1,540.00<br/>
-                                ⚡ Time: 42 seconds
-                            </div>
-                        </div>
-                    `;
-                    timerDisplay.innerHTML = '<span style="color: var(--trust-green);">✓ Complete in 42 seconds</span>';
+            const summaryContainer = document.getElementById('act5-summary');
+            summaryContainer.innerHTML = `
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="padding: 16px; background: rgba(155, 89, 182, 0.1); border-left: 4px solid var(--ai-purple); border-radius: 4px;">
+                        <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">AI APPROVED</p>
+                        <p class="text-data">Instant credit decision</p>
+                    </div>
+                    <div style="padding: 16px; background: rgba(52, 152, 219, 0.1); border-left: 4px solid var(--data-blue); border-radius: 4px;">
+                        <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">FUNDING SETTLED</p>
+                        <p class="text-data">30 seconds</p>
+                    </div>
+                    <div style="padding: 16px; background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--stablecoin-gold); border-radius: 4px;">
+                        <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">MEMBER IMPACT</p>
+                        <p class="text-data">Makes it to work Monday</p>
+                    </div>
+                </div>
+            `;
 
-                    const summaryContainer = document.getElementById('act5-summary');
-                    summaryContainer.innerHTML = `
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <div style="padding: 16px; background: rgba(155, 89, 182, 0.1); border-left: 4px solid var(--ai-purple); border-radius: 4px;">
-                                <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">AI APPROVED</p>
-                                <p class="text-data">Instant credit decision</p>
-                            </div>
-                            <div style="padding: 16px; background: rgba(52, 152, 219, 0.1); border-left: 4px solid var(--data-blue); border-radius: 4px;">
-                                <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">FUNDING SETTLED</p>
-                                <p class="text-data">30 seconds</p>
-                            </div>
-                            <div style="padding: 16px; background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--stablecoin-gold); border-radius: 4px;">
-                                <p class="text-small" style="opacity: 0.7; margin-bottom: 8px;">MEMBER IMPACT</p>
-                                <p class="text-data">Makes it to work Monday</p>
-                            </div>
-                        </div>
-                    `;
-
-                    await sleep(CONFIG.acts[4].duration * 1000 - 4000);
-                }
-
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
-            }
+            await sleep(CONFIG.acts[4].duration * 1000 - 4000);
         }
 
         async function performAct6() {
-            try {
-                const startStep = (state.currentAct === 5) ? state.currentStep : 0;
+            await sleep(CONFIG.acts[5].duration * 1000);
+        }
 
-                if (startStep <= 0) {
-                    state.currentStep = 0;
-                    await sleep(CONFIG.acts[5].duration * 1000);
-                }
+        // Simple navigation functions
+        async function goToAct(actIndex) {
+            // Validate act index
+            if (actIndex < 0 || actIndex >= CONFIG.acts.length) {
+                return;
+            }
 
-                state.currentStep = 0;
-            } catch (e) {
-                if (e.message === 'PAUSED') {
-                    return;
-                }
-                throw e;
+            state.currentAct = actIndex;
+            showAct(actIndex);
+            updateNavigation();
+
+            // Auto-play the act animation
+            switch(actIndex) {
+                case 0: await performAct1(); break;
+                case 1: await performAct2(); break;
+                case 2: await performAct3(); break;
+                case 3: await performAct4(); break;
+                case 4: await performAct5(); break;
+                case 5: await performAct6(); break;
             }
         }
 
-        async function runSequence() {
-            try {
-                // Start from currentAct to support resume
-                for (let i = state.currentAct; i < CONFIG.acts.length; i++) {
-                    if (!state.isPlaying) break;
-
-                    state.currentAct = i;
-                    showAct(i);
-
-                    try {
-                        switch(i) {
-                            case 0: await performAct1(); break;
-                            case 1: await performAct2(); break;
-                            case 2: await performAct3(); break;
-                            case 3: await performAct4(); break;
-                            case 4: await performAct5(); break;
-                            case 5: await performAct6(); break;
-                        }
-
-                        await sleep(500);
-                    } catch (e) {
-                        if (e.message === 'PAUSED') {
-                            return; // Preserve currentAct and currentStep for resume
-                        }
-                        throw e;
-                    }
-                }
-
-                // Only reset when fully completed
-                state.isPlaying = false;
-                state.currentAct = 0;
-                state.currentStep = 0;
-                updatePlayPauseButton();
-            } catch (e) {
-                state.isPlaying = false;
-                updatePlayPauseButton();
-                throw e;
+        function nextAct() {
+            if (state.currentAct < CONFIG.acts.length - 1) {
+                goToAct(state.currentAct + 1);
             }
         }
 
-        function play() {
-            state.isPlaying = true;
-            const wasResuming = state.isPaused;
-            state.isPaused = false;
-            updatePlayPauseButton();
-
-            // If not resuming from pause, start fresh from beginning
-            if (!wasResuming) {
-                state.currentAct = 0;
-                state.currentStep = 0;
-                state.pausedSleepState = null;
-            }
-
-            runSequence();
-        }
-
-        function pause() {
-            state.isPlaying = false;
-            state.isPaused = true;
-
-            // Interrupt any running sleep to pause immediately
-            if (state.abortController) {
-                state.abortController.abort();
-            }
-
-            updatePlayPauseButton();
-        }
-
-        function togglePlayPause() {
-            if (state.isPlaying) {
-                pause();
-            } else {
-                play();
+        function previousAct() {
+            if (state.currentAct > 0) {
+                goToAct(state.currentAct - 1);
             }
         }
 
         function restart() {
-            state.isPlaying = false;
-            state.isPaused = false;
-            state.currentAct = 0;
-            state.currentStep = 0;
-            state.pausedSleepState = null;
-
-            // Abort any running sleep to ensure immediate restart
-            if (state.abortController) {
-                state.abortController.abort();
-            }
-
-            showAct(0);
-            updatePlayPauseButton();
+            goToAct(0);
         }
 
-        function updatePlayPauseButton() {
-            const playBtn = document.getElementById('playBtn');
-            const pauseBtn = document.getElementById('pauseBtn');
-
-            if (state.isPlaying) {
-                playBtn.classList.remove('active');
-                pauseBtn.classList.add('active');
-            } else {
-                playBtn.classList.add('active');
-                pauseBtn.classList.remove('active');
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                togglePlayPause();
-            } else if (e.key === 'r' || e.key === 'R') {
-                restart();
-            } else if (e.key === 'c' || e.key === 'C') {
-                const controls = document.getElementById('controls');
-                state.controlsHidden = !state.controlsHidden;
-                controls.classList.toggle('hidden', state.controlsHidden);
-            } else if (e.key === '+' || e.key === '=') {
-                e.preventDefault();
-                const newSpeed = Math.min(2, state.animationSpeed + 0.25);
-                setAnimationSpeed(newSpeed);
-            } else if (e.key === '-' || e.key === '_') {
-                e.preventDefault();
-                const newSpeed = Math.max(0.25, state.animationSpeed - 0.25);
-                setAnimationSpeed(newSpeed);
-            } else if (e.key >= '1' && e.key <= '6') {
-                const actIndex = parseInt(e.key) - 1;
-
-                // Interrupt any current operation
-                if (state.abortController) {
-                    state.abortController.abort();
-                }
-
-                // Jump to target act and start playing from there
-                state.currentAct = actIndex;
-                state.currentStep = 0;
-                state.isPaused = false;
-                state.isPlaying = true;
-                state.pausedSleepState = null;
-
-                showAct(actIndex);
-                updatePlayPauseButton();
-
-                // Start sequence from this act
-                runSequence();
-            }
-        });
-
-        document.getElementById('speedSlider').addEventListener('input', (e) => {
-            setAnimationSpeed(parseFloat(e.target.value));
-        });
-
-        document.getElementById('playBtn').addEventListener('click', play);
-        document.getElementById('pauseBtn').addEventListener('click', pause);
-        document.getElementById('restartBtn').addEventListener('click', restart);
-
-        const actDotsContainer = document.getElementById('actDots');
-        CONFIG.acts.forEach((act, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'act-dot';
-            dot.textContent = index + 1;
-            dot.addEventListener('click', () => {
-                if (!state.isPlaying) {
-                    showAct(index);
+        function updateNavigation() {
+            // Update act indicator dots
+            const dots = document.querySelectorAll('.act-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === state.currentAct) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
                 }
             });
-            actDotsContainer.appendChild(dot);
-        });
+
+            // Show/hide navigation arrows
+            const prevArrow = document.getElementById('navPrevious');
+            const nextArrow = document.getElementById('navNext');
+
+            if (state.currentAct === 0) {
+                prevArrow.classList.add('hidden');
+            } else {
+                prevArrow.classList.remove('hidden');
+            }
+
+            if (state.currentAct === CONFIG.acts.length - 1) {
+                nextArrow.classList.add('hidden');
+            } else {
+                nextArrow.classList.remove('hidden');
+            }
+        }
+
+        function initDots() {
+            const indicatorContainer = document.getElementById('actIndicator');
+            CONFIG.acts.forEach((act, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'act-indicator-dot';
+                indicatorContainer.appendChild(dot);
+            });
+        }
+
+        // Event listeners for navigation
+        document.getElementById('navPrevious').addEventListener('click', previousAct);
+        document.getElementById('navNext').addEventListener('click', nextAct);
+        document.getElementById('navRestart').addEventListener('click', restart);
 
         function init() {
+            initDots();
             showAct(0);
-            updatePlayPauseButton();
-            setAnimationSpeed(1);
+            updateNavigation();
         }
 
         window.addEventListener('load', init);
