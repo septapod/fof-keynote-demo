@@ -28,6 +28,20 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - More appropriate tone for CEO/board audiences evaluating strategic options
 - Focus on value delivery rather than competitive urgency
 
+### 2. ✅ Arrow Discovery Enhancement
+
+**Added Pulsing Glow to Next Arrow:**
+- Next arrow (▶) now has a flashing cyan glow effect when page first loads
+- Glow pulses smoothly every 1.5 seconds for 8 seconds, then stops
+- Uses consistent cyan color (#06B6D4) from design system
+- Automatically removes animation to avoid distraction during presentation
+
+**Benefits:**
+- Helps users discover navigation arrow on first load
+- Subtle but noticeable—improves initial UX without being distracting
+- Perfect for live presentations where audience may miss UI elements
+- Glow stops after 8 seconds so presenter controls pacing
+
 ---
 
 ## Previous Major Updates (v3.0 - Simplified Navigation)
