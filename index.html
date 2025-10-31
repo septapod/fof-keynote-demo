@@ -633,6 +633,25 @@
             right: 32px;
         }
 
+        /* Navigation Arrow Pulse - Initial Discovery */
+        .nav-arrow-pulse {
+            animation: arrowPulseGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulseGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 20px rgba(6, 182, 212, 0.2),
+                    0 4px 16px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow:
+                    0 0 40px rgba(6, 182, 212, 0.6),
+                    0 0 60px rgba(6, 182, 212, 0.4),
+                    0 4px 16px rgba(0, 0, 0, 0.3);
+            }
+        }
+
         /* Restart Button - Top Left */
         .nav-restart {
             position: fixed;
@@ -1450,6 +1469,15 @@
             initDots();
             showAct(0);
             updateNavigation();
+
+            // Add pulsing glow to next arrow on first load to help discovery
+            const nextArrow = document.getElementById('navNext');
+            nextArrow.classList.add('nav-arrow-pulse');
+
+            // Remove pulse after 8 seconds to avoid distraction
+            setTimeout(() => {
+                nextArrow.classList.remove('nav-arrow-pulse');
+            }, 8000);
         }
 
         window.addEventListener('load', init);
