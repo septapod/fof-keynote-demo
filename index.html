@@ -1166,6 +1166,7 @@
             `;
             msgContainer.appendChild(userMsgRow);
             await sleep(CONFIG.acts[0].duration * 1000 - 2000);
+            pulseNextArrow();
         }
 
         async function performAct2() {
@@ -1236,6 +1237,7 @@
             });
 
             await sleep(CONFIG.acts[1].duration * 1000);
+            pulseNextArrow();
         }
 
         async function performAct3() {
@@ -1263,8 +1265,8 @@
             `;
 
             await sleep(CONFIG.acts[2].duration * 1000);
+            pulseNextArrow();
         }
-
 
         async function performAct4() {
             const contentContainer = document.getElementById('act4-content');
@@ -1293,6 +1295,7 @@
             contentContainer.appendChild(confirmMsgRow);
 
             await sleep(CONFIG.acts[3].duration * 1000 - 1000);
+            pulseNextArrow();
         }
 
         async function performAct5() {
@@ -1384,10 +1387,23 @@
             `;
 
             await sleep(CONFIG.acts[4].duration * 1000 - 4000);
+            pulseNextArrow();
         }
 
         async function performAct6() {
             await sleep(CONFIG.acts[5].duration * 1000);
+        }
+
+        // Helper function to pulse the next arrow to signal user to advance
+        function pulseNextArrow() {
+            const nextArrow = document.getElementById('navNext');
+            if (nextArrow && !nextArrow.classList.contains('hidden')) {
+                nextArrow.classList.add('nav-arrow-pulse');
+                // Remove pulse after 8 seconds to avoid distraction
+                setTimeout(() => {
+                    nextArrow.classList.remove('nav-arrow-pulse');
+                }, 8000);
+            }
         }
 
         // Simple navigation functions
