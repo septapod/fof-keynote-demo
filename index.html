@@ -1199,16 +1199,16 @@
                 { label: 'Monthly Verified Income', value: '$4,500', emoji: '✓', source: 'Payroll' }
             ];
 
-            dataContainer.innerHTML = '';
+            dataContainer.innerHTML = '<div style="font-size: 16px; margin-bottom: 16px; color: #a78bfa;">Analyzing your accounts from Agentic CU and connected institutions...</div>';
             dataPoints.forEach((point, index) => {
                 const element = document.createElement('div');
                 element.className = `data-point stagger-${index + 1}`;
                 element.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-                        <div class="data-label" style="font-size: 28px; font-weight: 600;">${point.emoji} ${point.label}</div>
-                        <div style="font-size: 18px; opacity: 0.9; color: var(--stablecoin-gold); font-weight: 600;">${point.source}</div>
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                        <div class="data-label" style="font-size: 20px; font-weight: 600;">${point.emoji} ${point.label}</div>
+                        <div style="font-size: 14px; opacity: 0.9; color: var(--stablecoin-gold); font-weight: 600;">${point.source}</div>
                     </div>
-                    <div class="data-value" style="font-size: 44px; font-weight: 700; color: var(--trust-green); margin-top: 8px;">${point.value}</div>
+                    <div class="data-value" style="font-size: 32px; font-weight: 700; color: var(--trust-green); margin-top: 6px;">${point.value}</div>
                 `;
                 dataContainer.appendChild(element);
             });
@@ -1223,15 +1223,17 @@
                 { label: 'Approval', value: 'Low risk ✓', icon: '🟢' }
             ];
 
-            reasoningContainer.innerHTML = '';
+            reasoningContainer.innerHTML = '<div style="font-size: 15px; margin-bottom: 14px; color: #a78bfa;">Here\'s my assessment: She has a solid financial foundation and strong repayment capacity. This is a green light.</div>';
             reasoning.forEach((item, index) => {
                 const element = document.createElement('div');
                 element.className = `data-point stagger-${index + 6}`;
                 const bgColor = item.icon === '🟢' ? 'rgba(46, 204, 113, 0.2)' : 'rgba(52, 152, 219, 0.2)';
                 element.style.background = bgColor;
+                element.style.padding = '12px';
+                element.style.marginBottom = '8px';
                 element.innerHTML = `
-                    <div class="data-label" style="font-size: 18px; font-weight: 600;">${item.icon} ${item.label}</div>
-                    <div class="data-value" style="font-size: 26px; font-weight: 700; margin-top: 6px;">${item.value}</div>
+                    <div class="data-label" style="font-size: 15px; font-weight: 600;">${item.icon} ${item.label}</div>
+                    <div class="data-value" style="font-size: 20px; font-weight: 700; margin-top: 4px;">${item.value}</div>
                 `;
                 reasoningContainer.appendChild(element);
             });
