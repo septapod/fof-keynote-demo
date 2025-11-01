@@ -1243,7 +1243,10 @@
         async function performAct3() {
             const optionsContainer = document.getElementById('act3-options');
             optionsContainer.innerHTML = `
-                <div class="message-ai" style="font-size: 18px;">I found three ways to help you:</div>
+                <div class="message-row">
+                    <div class="message-avatar ai-avatar">🤖</div>
+                    <div class="message-bubble message-ai" style="font-size: 18px;">I found three ways to help you:</div>
+                </div>
 
                 <div class="option-card" style="background: rgba(52, 152, 219, 0.15); border: 2px solid var(--data-blue); margin-top: 12px; padding: 16px; border-radius: 8px;">
                     <div style="font-weight: 700; margin-bottom: 12px; font-size: 28px; color: #1a1a1a;">Option 1: Use Savings</div>
