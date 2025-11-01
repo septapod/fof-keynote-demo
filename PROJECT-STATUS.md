@@ -45,7 +45,7 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 ### 3. ✅ ACU Logo Branding
 
 **Added Logo to Phone App Headers:**
-- ACU logo (acu_logo.png) now appears next to "Artificial CU" in all phone frames
+- ACU logo (acu_logo.png) now appears next to "Agentic CU" in all phone frames
 - Logo is 24px height with auto width to maintain aspect ratio
 - Professional 8px gap between text and logo for clean spacing
 - Applied consistently across all 5 acts (Acts 1-5)
@@ -54,7 +54,7 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - Strengthens brand identity throughout the demo
 - More polished, professional appearance
 - Logo appears in every customer-facing screen
-- Reinforces "Artificial CU" as the product/service name
+- Reinforces "Agentic CU" as the product/service name
 
 ---
 
