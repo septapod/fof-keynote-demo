@@ -1217,10 +1217,10 @@
 
             const reasoningContainer = document.getElementById('act2-reasoning');
             const reasoning = [
-                { label: 'Employment Stability', value: 'UMMC: 6 years continuous', icon: '🏥' },
-                { label: 'Payment History', value: '72 MONTHS of on-time payments', icon: '✓' },
-                { label: 'Monthly Capacity', value: '~$1,600 available after expenses', icon: '💰' },
-                { label: 'Credit Assessment', value: 'APPROVED ✓ Low Risk Profile', icon: '🟢' }
+                { label: 'Stable job', value: '6 years at UMMC', icon: '🏥' },
+                { label: 'Never missed payment', value: '72 months clean', icon: '✓' },
+                { label: 'Breathing room', value: '$1,600/month cushion', icon: '💰' },
+                { label: 'Approval', value: 'Low risk ✓', icon: '🟢' }
             ];
 
             reasoningContainer.innerHTML = '';
@@ -1230,8 +1230,8 @@
                 const bgColor = item.icon === '🟢' ? 'rgba(46, 204, 113, 0.2)' : 'rgba(52, 152, 219, 0.2)';
                 element.style.background = bgColor;
                 element.innerHTML = `
-                    <div class="data-label" style="font-size: 28px; font-weight: 600;">${item.icon} ${item.label}</div>
-                    <div class="data-value" style="font-size: 40px; font-weight: 700; margin-top: 8px;">${item.value}</div>
+                    <div class="data-label" style="font-size: 18px; font-weight: 600;">${item.icon} ${item.label}</div>
+                    <div class="data-value" style="font-size: 26px; font-weight: 700; margin-top: 6px;">${item.value}</div>
                 `;
                 reasoningContainer.appendChild(element);
             });
