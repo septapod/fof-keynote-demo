@@ -1217,13 +1217,34 @@
 
             const reasoningContainer = document.getElementById('act2-reasoning');
             const reasoning = [
-                { label: 'Stable job', value: '6 years at UMMC', icon: '🏥' },
-                { label: 'Never missed payment', value: '72 months clean', icon: '✓' },
-                { label: 'Breathing room', value: '$1,600/month cushion', icon: '💰' },
-                { label: 'Approval', value: 'Low risk ✓', icon: '🟢' }
+                {
+                    title: '✓ Employment Stability',
+                    text: 'Sarah has been at UMMC for 6 years. Stable healthcare employment with excellent income predictability.',
+                    icon: '🏥'
+                },
+                {
+                    title: '✓ Payment Behavior',
+                    text: 'Perfect payment history: 72 months of on-time payments. Zero missed or late payments. Demonstrates consistent financial responsibility.',
+                    icon: '✓'
+                },
+                {
+                    title: '✓ Cash Flow Management',
+                    text: 'Monthly income of $4,500 with ~$1,600 surplus after expenses. The $210/month loan payment represents only 13% of her monthly buffer.',
+                    icon: '💰'
+                },
+                {
+                    title: '✓ Current Situation',
+                    text: 'One-time emergency with clear resolution. Not a recurring issue. Emergency repairs protect her ability to work and earn.',
+                    icon: '🚗'
+                },
+                {
+                    title: '✓ Risk Assessment',
+                    text: 'Low risk profile. Strong income, proven payment discipline, adequate cash flow. This is a highly serviceable loan with minimal default risk.',
+                    icon: '🟢'
+                }
             ];
 
-            reasoningContainer.innerHTML = '<div style="font-size: 15px; margin-bottom: 14px; color: #a78bfa;">Here\'s my assessment: She has a solid financial foundation and strong repayment capacity. This is a green light.</div>';
+            reasoningContainer.innerHTML = '<div style="font-size: 15px; margin-bottom: 14px; color: #a78bfa;">My analysis: Sarah is a strong candidate. All signals point to approval.</div>';
             reasoning.forEach((item, index) => {
                 const element = document.createElement('div');
                 element.className = `data-point stagger-${index + 6}`;
@@ -1232,8 +1253,8 @@
                 element.style.padding = '12px';
                 element.style.marginBottom = '8px';
                 element.innerHTML = `
-                    <div class="data-label" style="font-size: 15px; font-weight: 600;">${item.icon} ${item.label}</div>
-                    <div class="data-value" style="font-size: 20px; font-weight: 700; margin-top: 4px;">${item.value}</div>
+                    <div class="data-label" style="font-size: 15px; font-weight: 600;">${item.icon} ${item.title}</div>
+                    <div style="font-size: 14px; margin-top: 6px; line-height: 1.4; color: #e0d4ff;">${item.text}</div>
                 `;
                 reasoningContainer.appendChild(element);
             });
