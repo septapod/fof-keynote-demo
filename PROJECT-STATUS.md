@@ -2,7 +2,7 @@
 
 **Last Updated:** October 31, 2025
 **Status:** Production Ready
-**Version:** 3.1 (Tone & Messaging Refinement)
+**Version:** 3.2 (Branding & UX Refinement)
 
 ---
 
@@ -12,7 +12,94 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 
 ---
 
-## Recent Major Updates (v3.1 - Tone & Messaging Refinement)
+## Recent Major Updates (v3.2 - Branding & UX Refinement)
+
+### 1. ✅ Rebranding to "Agentic CU"
+
+**Complete Name Change:**
+- Replaced all instances of "Artificial CU" with "Agentic CU"
+- Updated in phone app headers across all 5 acts
+- Updated in financial account labels (Checking, Savings)
+- More focused brand name reflecting the agentic AI technology
+
+### 2. ✅ Enhanced Logo Branding Throughout
+
+**Logo Integration in Chat Messages:**
+- Replaced robot emoji (🤖) with ACU logo in all AI message avatars
+- Logo displays at 75% size within 32px avatar circles for clean appearance
+- Consistent branding across all 6 acts
+- More professional and branded customer experience
+
+**Logo Position Refinement:**
+- Repositioned logo to left of "Agentic CU" text in phone headers
+- Proper vertical alignment with text baseline
+- 8px gap between logo and text for professional spacing
+
+### 3. ✅ Enhanced Navigation & Discovery
+
+**Arrow Pulse After Each Act:**
+- Next arrow now pulses with cyan glow after each act animation completes
+- Signals to user that they can advance to next screen
+- 8-second pulse duration to avoid distraction
+- Creates consistent visual feedback pattern
+
+### 4. ✅ Improved Sarah's Financial Profile
+
+**Increased Monthly Income:**
+- Sarah's income: $4,500/month (~$54,000 annually, over $50K)
+- Updated from $3,600/month
+- Monthly capacity now ~$1,600 available after expenses
+- Stronger financial profile supporting creditworthiness
+
+### 5. ✅ Enhanced AI Reasoning Display
+
+**Detailed Analysis Cards in Act 2:**
+- Replaced simple reasoning bullets with 5 comprehensive analysis cards:
+  1. **Employment Stability** - 6 years at UMMC, predictable income
+  2. **Payment Behavior** - 72 months perfect history, zero missed payments
+  3. **Cash Flow Management** - $4,500 income, $210 payment = 13% of surplus
+  4. **Current Situation** - One-time emergency protecting earning ability
+  5. **Risk Assessment** - Low risk, highly serviceable, minimal default risk
+- Conversational tone showing agent's internal reasoning
+- Similar to professional underwriting analysis
+
+**Optimized Layout & Typography:**
+- Reduced all font sizes in Act 2 for less scrolling
+- Financial data section: reduced labels, values, margins
+- Added conversational intro text: "Analyzing your accounts..."
+- Added assessment text: "My analysis: Sarah is a strong candidate..."
+- Reasoning text increased to 16px for readability
+- Improved line-height (1.5) for better text spacing
+
+### 6. ✅ Act 3 & Act 5 Improvements
+
+**Loan Options Compacting:**
+- Reduced font sizes and padding in Act 3 option cards
+- All three options now visible without scrolling on phone
+- Titles: 28px → 20px, values: 26px → 18px
+- Better visual hierarchy with compact spacing
+
+**Customer Appreciation Moment:**
+- Added Sarah's thank you message at end of Act 5
+- Message: "Thank you so much! This just saved my week. 💙"
+- Creates emotional closing to success narrative
+- Reinforces positive member experience
+
+### 7. ✅ UI Polish & Consistency
+
+**Final Act Title Update:**
+- Changed "The Complete Vision" to "The Complete Picture"
+- More accessible, research-oriented language
+- Aligns with informational presentation tone
+
+**Message Formatting:**
+- Added proper message row formatting to "I found three ways to help you:"
+- Includes ACU logo avatar for consistency
+- Reads naturally as part of chat conversation
+
+---
+
+## Previous Major Updates (v3.1 - Tone & Messaging Refinement)
 
 ### 1. ✅ Research-Report Tone Refinement
 
@@ -261,7 +348,19 @@ All corner radii reduced by 50% for modern aesthetic:
 
 ## Version History
 
-### v3.1 (Current) - October 31, 2025
+### v3.2 (Current) - October 31, 2025
+- Rebranded to "Agentic CU" throughout
+- ACU logo integrated in chat message avatars
+- Arrow pulse glow added after each act completes
+- Sarah's monthly income increased to $4,500
+- Enhanced AI reasoning with detailed analysis cards
+- Optimized typography and spacing throughout Act 2
+- Reduced font sizes in Act 3 options for better visibility
+- Added Sarah's thank you message in Act 5
+- Final act title changed to "The Complete Picture"
+- Overall: stronger branding, improved UX, better narrative flow
+
+### v3.1 - October 31, 2025
 - Research-report tone refinement
 - Removed marketing-focused "Integration Is the Innovation" section
 - Replaced pushy call-to-action with informational messaging
@@ -315,7 +414,8 @@ None currently identified.
 
 **Location:** https://github.com/septapod/fof-keynote-demo
 **Deployment:** https://cu-ai-ob-demo.vercel.app/
-**Last Commit:** October 31, 2025 (v3.1 - Tone & Messaging Refinement)
+**Last Commit:** October 31, 2025 (v3.2 - Branding & UX Refinement)
+**Total Commits Today:** 15+ improvements across branding, UX, and narrative
 **Status:** All changes committed and deployed
 
 ---
