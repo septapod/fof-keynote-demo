@@ -42,6 +42,20 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - Perfect for live presentations where audience may miss UI elements
 - Glow stops after 8 seconds so presenter controls pacing
 
+### 3. ✅ ACU Logo Branding
+
+**Added Logo to Phone App Headers:**
+- ACU logo (acu_logo.png) now appears next to "Artificial CU" in all phone frames
+- Logo is 24px height with auto width to maintain aspect ratio
+- Professional 8px gap between text and logo for clean spacing
+- Applied consistently across all 5 acts (Acts 1-5)
+
+**Benefits:**
+- Strengthens brand identity throughout the demo
+- More polished, professional appearance
+- Logo appears in every customer-facing screen
+- Reinforces "Artificial CU" as the product/service name
+
 ---
 
 ## Previous Major Updates (v3.0 - Simplified Navigation)
