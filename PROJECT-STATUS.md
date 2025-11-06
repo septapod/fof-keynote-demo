@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-Interactive demo showcasing AI + Open Banking + Stablecoin integration for credit unions. Demonstrates Sarah Martinez's 42-second emergency loan approval through a cinematic 6-act experience.
+Interactive demo showcasing AI + Open Banking + Stablecoin integration for credit unions. Demonstrates 16-year-old Brent's 42-second emergency loan approval through a cinematic 6-act experience.
 
 ---
 
@@ -43,10 +43,10 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - 8-second pulse duration to avoid distraction
 - Creates consistent visual feedback pattern
 
-### 4. ✅ Improved Sarah's Financial Profile
+### 4. ✅ Improved 16-year-old Brent's Financial Profile
 
 **Increased Monthly Income:**
-- Sarah's income: $4,500/month (~$54,000 annually, over $50K)
+- 16-year-old Brent's income: $4,500/month (~$54,000 annually, over $50K)
 - Updated from $3,600/month
 - Monthly capacity now ~$1,600 available after expenses
 - Stronger financial profile supporting creditworthiness
@@ -67,7 +67,7 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - Reduced all font sizes in Act 2 for less scrolling
 - Financial data section: reduced labels, values, margins
 - Added conversational intro text: "Analyzing your accounts..."
-- Added assessment text: "My analysis: Sarah is a strong candidate..."
+- Added assessment text: "My analysis: 16-year-old Brent is a strong candidate..."
 - Reasoning text increased to 16px for readability
 - Improved line-height (1.5) for better text spacing
 
@@ -80,7 +80,7 @@ Interactive demo showcasing AI + Open Banking + Stablecoin integration for credi
 - Better visual hierarchy with compact spacing
 
 **Customer Appreciation Moment:**
-- Added Sarah's thank you message at end of Act 5
+- Added 16-year-old Brent's thank you message at end of Act 5
 - Message: "Thank you so much! This just saved my week. 💙"
 - Creates emotional closing to success narrative
 - Reinforces positive member experience
@@ -352,11 +352,11 @@ All corner radii reduced by 50% for modern aesthetic:
 - Rebranded to "Agentic CU" throughout
 - ACU logo integrated in chat message avatars
 - Arrow pulse glow added after each act completes
-- Sarah's monthly income increased to $4,500
+- 16-year-old Brent's monthly income increased to $4,500
 - Enhanced AI reasoning with detailed analysis cards
 - Optimized typography and spacing throughout Act 2
 - Reduced font sizes in Act 3 options for better visibility
-- Added Sarah's thank you message in Act 5
+- Added 16-year-old Brent's thank you message in Act 5
 - Final act title changed to "The Complete Picture"
 - Overall: stronger branding, improved UX, better narrative flow
 
